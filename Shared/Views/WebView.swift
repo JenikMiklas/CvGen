@@ -13,17 +13,12 @@ struct WebView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
-        if let url = Bundle.main.url(forResource: "index", withExtension: "html") {
-            //webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
-            webView.loadHTMLString(HTMLString.htmlString, baseURL: url)
-        } else {
-            print("unable to load template")
-        }
+       
+        webView.loadHTMLString(HTMLString.htmlString, baseURL: HTMLString.urlResources)
         return webView
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
         
     }
-    
 }

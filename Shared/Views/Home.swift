@@ -9,7 +9,15 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        WebView()
+        NavigationView {
+            WebView()
+                .navigationBarTitle("CvGen")
+                .toolbar(content: {
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image(systemName: "printer")
+                    })
+                })
+        }
     }
 }
 

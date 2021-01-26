@@ -8,6 +8,9 @@
 import Foundation
 
 struct HTMLString {
+    
+    static let urlResources = Bundle.main.resourceURL
+    
     static var htmlString: String = """
     <!DOCTYPE html>
     <html lang="en">
