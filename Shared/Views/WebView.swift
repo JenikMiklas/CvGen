@@ -9,7 +9,6 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
-
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
@@ -18,7 +17,5 @@ struct WebView: UIViewRepresentable {
         return webView
     }
     
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-    }
+    func updateUIView(_ uiView: UIViewType, context: Context) {}
 }

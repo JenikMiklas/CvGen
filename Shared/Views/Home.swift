@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct Home: View {
+    
+    let pdfCreator = PDFCreator()
+    
     var body: some View {
         NavigationView {
             WebView()
                 .navigationBarTitle("CvGen")
                 .toolbar(content: {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Image(systemName: "printer")
-                    })
+                    NavigationLink(
+                        destination: PDFViewer(data: pdfCreator.exportHTMLContentToPDF() as Data),
+                        label: {
+                            Image(systemName: "printer")
+                        })
                 })
         }
     }
