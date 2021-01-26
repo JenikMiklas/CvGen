@@ -13,7 +13,7 @@ struct HTMLString {
     <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>Resume #name</title>
+    <title>Resume #NAME#</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     </head>
@@ -26,8 +26,8 @@ struct HTMLString {
      <div class="resume_content">
        <div class="resume_item resume_info">
          <div class="title">
-           <p class="bold">#name</p>
-           <p class="regular">#carrer</p>
+           <p class="bold">#NAME#</p>
+           <p class="regular">#CARRER#</p>
          </div>
          <ul>
            <li>
@@ -35,7 +35,7 @@ struct HTMLString {
                <i class="fas fa-map-signs"></i>
              </div>
              <div class="data">
-               21 Street, Texas <br /> USA
+                #ADDRESS# <br /> #STATE#
              </div>
            </li>
            <li>
@@ -43,7 +43,7 @@ struct HTMLString {
                <i class="fas fa-mobile-alt"></i>
              </div>
              <div class="data">
-               +324 4445678
+                #TEL#
              </div>
            </li>
            <li>
@@ -51,7 +51,7 @@ struct HTMLString {
                <i class="fas fa-envelope"></i>
              </div>
              <div class="data">
-               stephen@gmail.com
+                #E-MAIL#
              </div>
            </li>
            <li>
@@ -59,66 +59,30 @@ struct HTMLString {
                <i class="fab fa-weebly"></i>
              </div>
              <div class="data">
-               www.stephen.com
+                #WEB#
              </div>
            </li>
          </ul>
        </div>
        <div class="resume_item resume_skills">
          <div class="title">
-           <p class="bold">skill's</p>
+           <p class="bold">#SKILL'S#</p>
          </div>
          <ul>
            <li>
              <div class="skill_name">
-               HTML
+                #SKILL#
              </div>
              <div class="skill_progress">
-               <span style="width: 80%;"></span>
+               <span style="width: #SKILL PROGRESS#;"></span>
              </div>
-             <div class="skill_per">80%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               CSS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 70%;"></span>
-             </div>
-             <div class="skill_per">70%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               SASS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 90%;"></span>
-             </div>
-             <div class="skill_per">90%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               JS
-             </div>
-             <div class="skill_progress">
-               <span style="width: 60%;"></span>
-             </div>
-             <div class="skill_per">60%</div>
-           </li>
-           <li>
-             <div class="skill_name">
-               JQUERY
-             </div>
-             <div class="skill_progress">
-               <span style="width: 88%;"></span>
-             </div>
-             <div class="skill_per">88%</div>
+             <div class="skill_per">#SKILL PROGRESS#</div>
            </li>
          </ul>
        </div>
        <div class="resume_item resume_social">
          <div class="title">
-           <p class="bold">Social</p>
+           <p class="bold">#SOCIAL#</p>
          </div>
          <ul>
            <li>
@@ -136,7 +100,7 @@ struct HTMLString {
              </div>
              <div class="data">
                <p class="semi-bold">Twitter</p>
-               <p>Stephen@twitter</p>
+               <p>#TWITTER#</p>
              </div>
            </li>
            <li>
@@ -164,89 +128,53 @@ struct HTMLString {
     <div class="resume_right">
     <div class="resume_item resume_about">
         <div class="title">
-           <p class="bold">About us</p>
+           <p class="bold">#ABOUT#</p>
          </div>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio culpa officia totam atque exercitationem inventore repudiandae?</p>
+        <p>#PERSONAL#</p>
     </div>
     <div class="resume_item resume_work">
         <div class="title">
-           <p class="bold">Work Experience</p>
+           <p class="bold">#JOBS#</p>
          </div>
         <ul>
             <li>
-                <div class="date">2013 - 2015</div>
+                <div class="date">#JOBS DATE#</div>
                 <div class="info">
-                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-            <li>
-              <div class="date">2015 - 2017</div>
-              <div class="info">
-                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-            <li>
-              <div class="date">2017 - Present</div>
-              <div class="info">
-                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                     <p class="semi-bold">#COMPANY#</p>
+                  <p>#JOB DESCRIPTION#</p>
                 </div>
             </li>
         </ul>
     </div>
     <div class="resume_item resume_education">
       <div class="title">
-           <p class="bold">Education</p>
+           <p class="bold">#EDU#</p>
          </div>
       <ul>
             <li>
-                <div class="date">2010 - 2013</div>
+                <div class="date">#EDU DATE#</div>
                 <div class="info">
-                     <p class="semi-bold">Web Designing (Texas University)</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-            <li>
-              <div class="date">2000 - 2010</div>
-              <div class="info">
-                     <p class="semi-bold">Texas International School</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="resume_item resume_education">
-      <div class="title">
-           <p class="bold">KOKOT</p>
-         </div>
-      <ul>
-            <li>
-                <div class="date">2010 - 2013</div>
-                <div class="info">
-                     <p class="semi-bold">Web Designing (Texas University)</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                </div>
-            </li>
-            <li>
-              <div class="date">2000 - 2010</div>
-              <div class="info">
-                     <p class="semi-bold">Texas International School</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                     <p class="semi-bold">#EDU SCHOOL#</p>
+                  <p>#EDU DESCRIPTION#</p>
                 </div>
             </li>
         </ul>
     </div>
     <div class="resume_item resume_hobby">
       <div class="title">
-           <p class="bold">Hobby</p>
+           <p class="bold">#HOBBY#</p>
          </div>
        <ul>
          <li><i class="fas fa-book"></i></li>
          <li><i class="fas fa-gamepad"></i></li>
          <li><i class="fas fa-music"></i></li>
-         <li><i class="fab fa-pagelines"></i></li>
+         <li><i class="fas fa-film"></i></li>
+      </ul>
+       <ul>
+         <div><p>#BOOK#</p><p>#BOOK#</p></div>
+         <div><p>#GAME#</p><p>#GAME#</p></div>
+         <div><p>#MUSIC#</p><p>#MUSIC#</p></div>
+         <div><p>#FILM#</p><p>#FILM#</p></div>
       </ul>
     </div>
     </div>
