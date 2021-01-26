@@ -17,6 +17,7 @@
 		7F765A4C25C022D9000754C0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3325C022D6000754C0 /* Persistence.swift */; };
 		7F765A4D25C022D9000754C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A3425C022D9000754C0 /* Assets.xcassets */; };
 		7F765A4E25C022D9000754C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A3425C022D9000754C0 /* Assets.xcassets */; };
+		7F765A6B25C02CFB000754C0 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A6A25C02CFB000754C0 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7F765A4125C022D9000754C0 /* CvGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CvGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F765A4325C022D9000754C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F765A4425C022D9000754C0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		7F765A6A25C02CFB000754C0 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				7F765A3125C022D6000754C0 /* CvGenApp.swift */,
 				7F765A3225C022D6000754C0 /* ContentView.swift */,
 				7F765A3325C022D6000754C0 /* Persistence.swift */,
+				7F765A6325C02CC3000754C0 /* Views */,
 				7F765A3425C022D9000754C0 /* Assets.xcassets */,
 				7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */,
 			);
@@ -96,6 +99,14 @@
 				7F765A4425C022D9000754C0 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		7F765A6325C02CC3000754C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F765A6A25C02CFB000754C0 /* Home.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 			files = (
 				7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */,
 				7F765A4B25C022D9000754C0 /* Persistence.swift in Sources */,
+				7F765A6B25C02CFB000754C0 /* Home.swift in Sources */,
 				7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */,
 				7F765A4925C022D9000754C0 /* ContentView.swift in Sources */,
 			);
