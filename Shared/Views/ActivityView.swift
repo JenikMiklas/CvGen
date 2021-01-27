@@ -10,10 +10,10 @@ import PDFKit
 
 struct ActivityView: UIViewControllerRepresentable {
     
-    let pdfDoc: PDFDocument
+    @Binding var pdfData: Data
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let items: [Any] = [pdfDoc.page(at: 0)!, UISimpleTextPrintFormatter(text: (pdfDoc.page(at: 0)?.string)!)]
+        let items: [Any] = [pdfData]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         return ac
     }

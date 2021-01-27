@@ -10,6 +10,8 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     
+    @Binding var pdfData: Data
+    
     func makeCoordinator() -> Coordinator {
             Coordinator(self)
         }
@@ -33,7 +35,7 @@ struct WebView: UIViewRepresentable {
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             // Page loaded
-            HTMLString.pdfData = webView.exportAsPdfFromWebView()
+            self.parent.pdfData = webView.exportAsPdfFromWebView()
             
         }
     }
