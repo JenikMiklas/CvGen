@@ -10,17 +10,29 @@ import SwiftUI
 struct Home: View {
     
     let pdfCreator = PDFCreator()
+    @State private var showSheet = false
     
     var body: some View {
         NavigationView {
             WebView()
                 .navigationBarTitle("CvGen")
                 .toolbar(content: {
-                    NavigationLink(
-                        destination: PDFViewer(data: pdfCreator.exportHTMLContentToPDF() as Data),
-                        label: {
-                            Image(systemName: "printer")
+                    HStack {
+                        Button(action: { showSheet.toggle() }, label: {
+                            Text("Print directly from WebView")
                         })
+                        
+                        Spacer()
+                        
+                        NavigationLink(
+                            destination: PDFViewer(data: pdfCreator.exportHTMLContentToPDF() as Data),
+                            label: {
+                                Image(systemName: "printer")
+                        })
+                    }
+                })
+                .sheet(isPresented: $showSheet, content: {
+                    PDFViewer(data: HTMLString.pdfData)
                 })
         }
     }

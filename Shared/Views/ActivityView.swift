@@ -13,7 +13,7 @@ struct ActivityView: UIViewControllerRepresentable {
     let pdfDoc: PDFDocument
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let items: [Any] = [pdfDoc.page(at: 0)!]
+        let items: [Any] = [pdfDoc.page(at: 0)!, UISimpleTextPrintFormatter(text: (pdfDoc.page(at: 0)?.string)!)]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         return ac
     }
