@@ -21,7 +21,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(persons) { person in
-                    Text("\(person.name!)")
+                    TestPersonView(person: person)
                 }
                 .onDelete(perform: deletePersons)
             }

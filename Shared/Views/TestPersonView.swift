@@ -15,7 +15,7 @@ struct TestPersonView: View {
         Form {
             Section(header: Text("Basic info")) {
                 Text("about")
-                Text("Name")
+                Text("\(person.name!)")
                 Text("Job")
                 Text("tel")
                 Text("e-mail")
