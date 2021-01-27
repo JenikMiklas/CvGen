@@ -13,9 +13,12 @@ struct CvGenApp: App {
 
     var body: some Scene {
         WindowGroup {
-            /*ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)*/
+            #if os(macOS)
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            #else
             Home()
+            #endif
         }
     }
 }
