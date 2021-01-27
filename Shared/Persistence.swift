@@ -15,8 +15,9 @@ struct PersistenceController {
         let viewContext = result.container.viewContext
         for _ in 0..<1 {
             let newPerson = Person(context: viewContext)
-            newPerson.name = "Jeník Mikláš"
+            newPerson.name = "Kolotoč"
             newPerson.born = Date()
+            newPerson.job = "Zedník"
         }
         do {
             try viewContext.save()

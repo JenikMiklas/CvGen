@@ -21,7 +21,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(persons) { person in
-                    TestPersonView(person: person)
+                    NavigationLink(
+                        destination: TestPersonView(person: person),
+                        label: {
+                            Text("\(person.name!)")
+                        })
                 }
                 .onDelete(perform: deletePersons)
             }
