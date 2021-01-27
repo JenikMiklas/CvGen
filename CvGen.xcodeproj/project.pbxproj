@@ -19,6 +19,7 @@
 		7F765A7625C03EC6000754C0 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A7325C03EC6000754C0 /* styles.css */; };
 		7F765A7825C03EC6000754C0 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A7525C03EC6000754C0 /* profile.png */; };
 		7F765A9125C049E1000754C0 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A9025C049E1000754C0 /* HTMLString.swift */; };
+		7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0008925C2151E004A89BB /* TestPersonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7F765A7325C03EC6000754C0 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		7F765A7525C03EC6000754C0 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		7F765A9025C049E1000754C0 /* HTMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLString.swift; sourceTree = "<group>"; };
+		7FB0008925C2151E004A89BB /* TestPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				7F0C27C525C04BE7001E8D9E /* WebView.swift */,
 				7F0C27DC25C081A0001E8D9E /* ActivityView.swift */,
 				7F0C27E625C0986E001E8D9E /* PDFViewer.swift */,
+				7FB0008925C2151E004A89BB /* TestPersonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				7F765A6B25C02CFB000754C0 /* Home.swift in Sources */,
 				7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */,
 				7F765A4925C022D9000754C0 /* ContentView.swift in Sources */,
+				7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */,
 				7F0C27DD25C081A0001E8D9E /* ActivityView.swift in Sources */,
 				7F765A9125C049E1000754C0 /* HTMLString.swift in Sources */,
 				7F0C27C625C04BE7001E8D9E /* WebView.swift in Sources */,
