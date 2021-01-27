@@ -20,7 +20,6 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView(frame: .zero)
         webView.navigationDelegate = context.coordinator
         webView.loadHTMLString(HTMLString.htmlStringTest, baseURL: HTMLString.urlResources)
-        print(HTMLString.pdfData)
         return webView
     }
     
