@@ -9,8 +9,6 @@ import Foundation
 
 struct HTMLString {
     
-    static var pdfData = Data()
-    
     static let urlResources = Bundle.main.resourceURL
     
     static var htmlStringTest: String = """
