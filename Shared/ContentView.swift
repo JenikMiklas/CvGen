@@ -12,10 +12,58 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
 
+    @FetchRequest(entity: Person.entity(),
+                  sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)],
+                  predicate: nil,
+                  animation: .default) var persons: FetchedResults<Person>
 
     var body: some View {
-        List {
-            Text("dsds")
+        NavigationView {
+            List {
+                ForEach(persons) { person in
+                    Text("\(person.name!)")
+                }
+                .onDelete(perform: deletePersons)
+            }
+            .navigationBarTitle("CvGen")
+            .toolbar {
+                Button(action: addPerson) {
+                    Label("Add Item", systemImage: "plus")
+                }
+            }
+        }
+    }
+    
+    //MARK: Testting adding and deleting
+    private func addPerson() {
+        withAnimation {
+            let newPerson = Person(context: viewContext)
+            newPerson.name = "Já"
+            newPerson.born = Date()
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+
+    private func deletePersons(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { persons[$0] }.forEach(viewContext.delete)
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
     }
 
