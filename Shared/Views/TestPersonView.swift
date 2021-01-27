@@ -16,6 +16,7 @@ struct TestPersonView: View {
             Section(header: Text("Basic info")) {
                 Text("about")
                 Text("\(person.name!)")
+                Text("\(person.address?.street ?? "USA"), "+"\(person.address?.zip ?? 0000) "+"\(person.address?.state ?? "USA")")
                 Text("Job")
                 Text("tel")
                 Text("e-mail")
