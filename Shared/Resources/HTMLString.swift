@@ -13,6 +13,234 @@ struct HTMLString {
     
     static let urlResources = Bundle.main.resourceURL
     
+    static var htmlStringTest: String = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume/CV Design</title>
+  <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+<div class="resume">
+   <div class="resume_left">
+     <div class="resume_profile">
+       <img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
+     </div>
+     <div class="resume_content">
+       <div class="resume_item resume_info">
+         <div class="title">
+           <p class="bold">stephen colbert</p>
+           <p class="regular">Designer</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fas fa-map-signs"></i>
+             </div>
+             <div class="data">
+               21 Street, Texas <br /> USA
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-mobile-alt"></i>
+             </div>
+             <div class="data">
+               +324 4445678
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-envelope"></i>
+             </div>
+             <div class="data">
+               stephen@gmail.com
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-weebly"></i>
+             </div>
+             <div class="data">
+               www.stephen.com
+             </div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_skills">
+         <div class="title">
+           <p class="bold">skill's</p>
+         </div>
+         <ul>
+           <li>
+             <div class="skill_name">
+               HTML
+             </div>
+             <div class="skill_progress">
+               <span style="width: 80%;"></span>
+             </div>
+             <div class="skill_per">80%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               CSS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 70%;"></span>
+             </div>
+             <div class="skill_per">70%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               SASS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 90%;"></span>
+             </div>
+             <div class="skill_per">90%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               JS
+             </div>
+             <div class="skill_progress">
+               <span style="width: 60%;"></span>
+             </div>
+             <div class="skill_per">60%</div>
+           </li>
+           <li>
+             <div class="skill_name">
+               JQUERY
+             </div>
+             <div class="skill_progress">
+               <span style="width: 88%;"></span>
+             </div>
+             <div class="skill_per">88%</div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_social">
+         <div class="title">
+           <p class="bold">Social</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fab fa-facebook-square"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Facebook</p>
+               <p>Stephen@facebook</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-twitter-square"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Twitter</p>
+               <p>Stephen@twitter</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-youtube"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Youtube</p>
+               <p>Stephen@youtube</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-linkedin"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Linkedin</p>
+               <p>Stephen@linkedin</p>
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
+  </div>
+  <div class="resume_right">
+    <div class="resume_item resume_about">
+        <div class="title">
+           <p class="bold">About us</p>
+         </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis illo fugit officiis distinctio culpa officia totam atque exercitationem inventore repudiandae?</p>
+    </div>
+    <div class="resume_item resume_work">
+        <div class="title">
+           <p class="bold">Work Experience</p>
+         </div>
+        <ul>
+            <li>
+                <div class="date">2013 - 2015</div>
+                <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2015 - 2017</div>
+              <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2017 - Present</div>
+              <div class="info">
+                     <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Education</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date">2010 - 2013</div>
+                <div class="info">
+                     <p class="semi-bold">Web Designing (Texas University)</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+            <li>
+              <div class="date">2000 - 2010</div>
+              <div class="info">
+                     <p class="semi-bold">Texas International School</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_hobby">
+      <div class="title">
+           <p class="bold">Hobby</p>
+         </div>
+       <ul>
+         <li><i class="fas fa-book"></i></li>
+         <li><i class="fas fa-gamepad"></i></li>
+         <li><i class="fas fa-music"></i></li>
+         <li><i class="fab fa-pagelines"></i></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+"""
+    
     static var htmlString: String = """
     <!DOCTYPE html>
     <html lang="en">
@@ -185,607 +413,6 @@ struct HTMLString {
     </div>
     </div>
 
-    </body>
-    </html>
-    """
-    
-    static let htmls2 = """
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>LogBook</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <table style="border: 1px solid black; border-collapse: collapse;">
-            <thead style="border: 1px solid black; border-collapse: collapse;">
-                <tr>
-                    <th style="border: 1px solid black; border-collapse: collapse;">1</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">2</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">3</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">4</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="3">5</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;">6</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;">7</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">8</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">9</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="4">10</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2">11</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;">12</th>
-                </tr>
-                <tr>
-                    <th style="border: 1px solid black; border-collapse: collapse;">DATE</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>DEPARTURE</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>ARRIVAL</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>AIRCRAFT</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>SINGLE PILOT TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" rowspan="2"><b>MULTI PILOT TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" rowspan="2"><b>TOTAL FLIGHT TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" rowspan="2"><b>PIC NAME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>LANDINGS</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>OPERATIONAL CONDITION TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="4"><b>PILOT FUNCTION TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>FSTD SESSION</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;" rowspan="2"><b>REMARKS AND ENDORSEMENTS</b></th>
-                </tr>
-                <tr>
-                    <th style="border: 1px solid black; border-collapse: collapse;">dd/mm/yy</th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>PLACE</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>PLACE</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>TIME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>MODEL, VARIANT</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>REGISTRATION</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>SE</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>ME</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>DAY</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>NIGHT</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>NIGHT</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>IFR</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>PIC</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>CO-PILOT</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>DUAL</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>INSTRUCTOR</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>TYPE</b></th>
-                    <th style="border: 1px solid black; border-collapse: collapse;"><b>TOTAL TIME</b></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">Captaion KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;">01/03/2020</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LKPR</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">17:30</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">LEMG</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">21:00</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">A320</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">OK-HEU</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">KUBA</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">1</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3:16</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="padding:0;margin:0;vertical-align:middle; border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;" colspan="5" rowspan="3"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>TOTAL THIS PAGE</b></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">19:48</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;" rowspan="3">_</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>TOTAL FROM PREVIOS PAGES</b></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">2016:13</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                </tr>
-                <tr>
-                    <td style="border: 1px solid black; border-collapse: collapse;" colspan="2"><b>TOTAL TIME</b></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse; font-weight: bold;">2045:51</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">3</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">5</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">19:48</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;">29:38</td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                    <td style="border: 1px solid black; border-collapse: collapse;"></td>
-                </tr>
-            </tfoot>
-        </table>
     </body>
     </html>
     """

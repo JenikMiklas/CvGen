@@ -17,7 +17,7 @@ struct WebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
         webView.navigationDelegate = context.coordinator
-        webView.loadHTMLString(HTMLString.htmlString, baseURL: HTMLString.urlResources)
+        webView.loadHTMLString(HTMLString.htmlStringTest, baseURL: HTMLString.urlResources)
         print(HTMLString.pdfData)
         return webView
     }
@@ -47,7 +47,6 @@ extension WKWebView {
         }
         
         func createPdfFile(printFormatter: UIViewPrintFormatter) -> NSMutableData {
-            
             let A4PageWidth: CGFloat = 595.2
             let A4PageHeight: CGFloat = 841.8
             let pageFrame = CGRect(x: 0.0, y: 0.0, width: A4PageWidth, height: A4PageHeight)
@@ -58,24 +57,11 @@ extension WKWebView {
             let printPageRenderer = UIPrintPageRenderer()
             printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
             printPageRenderer.setValue(NSValue(cgRect: pageFrame), forKey: "paperRect")
-            printPageRenderer.setValue(NSValue(cgRect: pageFrame.insetBy(dx: 10.0, dy: 10.0)), forKey: "printableRect")
+            printPageRenderer.setValue(NSValue(cgRect: pageFrame.insetBy(dx: 0.0, dy: 10.0)), forKey: "printableRect")
             //printPageRenderer.setValue(NSValue(cgRect: UIScreen.main.bounds), forKey: "paperRect")
             //printPageRenderer.setValue(NSValue(cgRect: pdfPageFrame), forKey: "printableRect")
            // self.bounds = originalBounds
             return printPageRenderer.generatePdfData()
-        }
-        
-        // Save pdf file in document directory
-        func saveWebViewPdf(data: NSMutableData) -> String {
-            
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let docDirectoryPath = paths[0]
-            let pdfPath = docDirectoryPath.appendingPathComponent("webViewPdf.pdf")
-            if data.write(to: pdfPath, atomically: true) {
-                return pdfPath.path
-            } else {
-                return ""
-            }
         }
 }
 
