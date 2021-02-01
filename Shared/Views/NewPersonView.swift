@@ -45,15 +45,15 @@ struct Badge: View {
     var body: some View {
         Group {
             Circle()
-                .frame(width: 125, height: 125)
+                .frame(width: 100, height: 100)
                 .foregroundColor(.gray)
                 .overlay(
                     Image(systemName: image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 75))
+                        .frame(width: 50))
             Text(title)
-                .font(.title2)
+                .font(.title3)
         }    }
 }
 
