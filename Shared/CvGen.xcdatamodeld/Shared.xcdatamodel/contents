@@ -6,6 +6,18 @@
         <attribute name="zip" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="address" inverseEntity="Person"/>
     </entity>
+    <entity name="Education" representedClassName="Education" syncable="YES" codeGenerationType="class">
+        <attribute name="course" optional="YES" attributeType="String"/>
+        <attribute name="period" optional="YES" attributeType="String"/>
+        <attribute name="school" optional="YES" attributeType="String"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="school" inverseEntity="Person"/>
+    </entity>
+    <entity name="Jobs" representedClassName="Jobs" syncable="YES" codeGenerationType="class">
+        <attribute name="company" optional="YES" attributeType="String"/>
+        <attribute name="period" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="String"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="work" inverseEntity="Person"/>
+    </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="born" attributeType="Date" usesScalarValueType="NO"/>
@@ -15,9 +27,13 @@
         <attribute name="phone" optional="YES" attributeType="String"/>
         <attribute name="web" optional="YES" attributeType="String"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="person" inverseEntity="Address"/>
+        <relationship name="school" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Education" inverseName="person" inverseEntity="Education"/>
+        <relationship name="work" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Jobs" inverseName="person" inverseEntity="Jobs"/>
     </entity>
     <elements>
-        <element name="Address" positionX="222.2049560546875" positionY="48.67767333984375" width="122.4381103515625" height="89"/>
-        <element name="Person" positionX="-63" positionY="-9" width="128" height="163"/>
+        <element name="Address" positionX="176.0208129882812" positionY="-13.80868530273438" width="122.4381103515625" height="89"/>
+        <element name="Person" positionX="-63" positionY="-9" width="128" height="193"/>
+        <element name="Jobs" positionX="467.6571655273438" positionY="30.82635498046875" width="128" height="103"/>
+        <element name="Education" positionX="324.979248046875" positionY="-1.7464599609375" width="128" height="103"/>
     </elements>
 </model>
