@@ -19,6 +19,7 @@
 		7F765A7625C03EC6000754C0 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A7325C03EC6000754C0 /* styles.css */; };
 		7F765A7825C03EC6000754C0 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F765A7525C03EC6000754C0 /* profile.png */; };
 		7F765A9125C049E1000754C0 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A9025C049E1000754C0 /* HTMLString.swift */; };
+		7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7780B825C8436E00D5CDEF /* CvGenViewModel.swift */; };
 		7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0008925C2151E004A89BB /* TestPersonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		7F765A7325C03EC6000754C0 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		7F765A7525C03EC6000754C0 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		7F765A9025C049E1000754C0 /* HTMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLString.swift; sourceTree = "<group>"; };
+		7F7780B825C8436E00D5CDEF /* CvGenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvGenViewModel.swift; sourceTree = "<group>"; };
 		7FB0008925C2151E004A89BB /* TestPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,11 +65,12 @@
 		7F765A2E25C022D6000754C0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7F7780B725C8430F00D5CDEF /* ViewModel */,
+				7F7780B625C842FB00D5CDEF /* Model */,
 				7F765A7225C03E9C000754C0 /* Resources */,
+				7F765A6325C02CC3000754C0 /* Views */,
 				7F765A3125C022D6000754C0 /* CvGenApp.swift */,
 				7F765A3225C022D6000754C0 /* ContentView.swift */,
-				7F765A3325C022D6000754C0 /* Persistence.swift */,
-				7F765A6325C02CC3000754C0 /* Views */,
 				7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */,
 			);
 			path = Shared;
@@ -110,6 +113,22 @@
 				7F765A9025C049E1000754C0 /* HTMLString.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7F7780B625C842FB00D5CDEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7F765A3325C022D6000754C0 /* Persistence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7F7780B725C8430F00D5CDEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7F7780B825C8436E00D5CDEF /* CvGenViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +204,7 @@
 				7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */,
 				7F765A4B25C022D9000754C0 /* Persistence.swift in Sources */,
 				7F765A6B25C02CFB000754C0 /* Home.swift in Sources */,
+				7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */,
 				7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */,
 				7F765A4925C022D9000754C0 /* ContentView.swift in Sources */,
 				7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */,
