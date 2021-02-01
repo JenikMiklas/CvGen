@@ -33,9 +33,11 @@ struct ContentView: View {
             }
             .navigationBarTitle("CvGen")
             .toolbar {
-                Button(action: addPerson) {
-                    Label("Add Item", systemImage: "plus")
-                }
+                NavigationLink(
+                    destination: NewPersonView(cvgVM: cvgVM),
+                    label: {
+                        Image(systemName: "plus")
+                    })
             }
         }
     }
