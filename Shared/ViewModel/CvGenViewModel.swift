@@ -12,10 +12,12 @@ class CvGenViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDele
     
     @Published var cvPersons: [Person] = []
     private let fetchRequestController: NSFetchedResultsController<Person>
+    var moc: NSManagedObjectContext
     
     init(moc: NSManagedObjectContext) {
         
         fetchRequestController = NSFetchedResultsController(fetchRequest: Person.personFetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        self.moc = moc
         super.init()
         fetchRequestController.delegate = self
         
