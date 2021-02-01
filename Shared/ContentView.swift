@@ -12,7 +12,7 @@ struct ContentView: View {
     
     //@Environment(\.managedObjectContext) private var viewContext
 
-    @EnvironmentObject var cvgVM: CvGenViewModel
+    @ObservedObject var cvgVM: CvGenViewModel
     
     /*@FetchRequest(entity: Person.entity(),
                   sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)],
@@ -83,7 +83,9 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
+    static let vm = CvGenViewModel(moc: PersistenceController.preview.container.viewContext)
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView(cvgVM: vm)
+            //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
