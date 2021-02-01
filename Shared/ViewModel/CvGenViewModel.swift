@@ -23,6 +23,7 @@ class CvGenViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDele
         
         do {
             try fetchRequestController.performFetch()
+            cvPersons = fetchRequestController.fetchedObjects ?? []
         } catch {
             print("Error: Cannot fetch Person items!!!")
         }
