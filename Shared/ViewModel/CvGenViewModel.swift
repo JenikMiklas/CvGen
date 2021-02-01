@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CvGenViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+class CvGenViewModel: NSObject, ObservableObject {
     
     @Published var cvPersons: [Person] = []
     private let fetchRequestController: NSFetchedResultsController<Person>
@@ -30,6 +30,9 @@ class CvGenViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDele
         
     }
     
+}
+
+extension CvGenViewModel: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let fetchedPersons = controller.fetchedObjects as? [Person] else { return }
         cvPersons = fetchedPersons
