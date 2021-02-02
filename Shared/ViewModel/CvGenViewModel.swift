@@ -11,7 +11,11 @@ import CoreData
 class CvGenViewModel: NSObject, ObservableObject {
     
     @Published var cvPersons: [Person] = []
-    @Published var person: Person?
+    
+    @Published var name = ""
+    @Published var street = ""
+    @Published var zip = ""
+    @Published var state = ""
     
     private let fetchRequestController: NSFetchedResultsController<Person>
     var moc: NSManagedObjectContext
