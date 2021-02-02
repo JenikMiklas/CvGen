@@ -16,6 +16,10 @@ class CvGenViewModel: NSObject, ObservableObject {
     @Published var street = ""
     @Published var zip = ""
     @Published var state = ""
+    @Published var profesion = ""
+    @Published var phone = ""
+    @Published var email = ""
+    @Published var web = ""
     
     private let fetchRequestController: NSFetchedResultsController<Person>
     var moc: NSManagedObjectContext
