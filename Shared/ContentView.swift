@@ -26,7 +26,7 @@ struct ContentView: View {
                     NavigationLink(
                         destination: TestPersonView(person: person),
                         label: {
-                            Text("\(person.name!)")
+                            Text("\(person.name ?? String("dsads"))")
                         })
                 }
                 .onDelete(perform: deletePersons)

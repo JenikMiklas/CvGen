@@ -15,7 +15,11 @@ struct NewPersonView: View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
             Badge(image: "photo", title: "profile photo")
             VerticalDivider()
-            Badge(image: "signpost.left", title: "contact")
+            NavigationLink(
+                destination: ContactFormView(person: $cvgVM.person),
+                label: {
+                    Badge(image: "signpost.left", title: "contact")
+                })
             VerticalDivider()
             Badge(image: "shippingbox", title: "working experiences")
             VerticalDivider()
@@ -48,7 +52,7 @@ struct Badge: View {
     let title: String
     
     var body: some View {
-        Group {
+        VStack {
             Circle()
                 .frame(width: 100, height: 100)
                 .foregroundColor(.gray)
@@ -59,7 +63,9 @@ struct Badge: View {
                         .frame(width: 50))
             Text(title)
                 .font(.title3)
-        }    }
+        }
+        .foregroundColor(.primary)
+    }
 }
 
 struct VerticalDivider: View {
