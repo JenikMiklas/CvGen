@@ -13,7 +13,7 @@ struct ContactFormView: View {
     @Binding var street: String
     @Binding var zip: String
     @Binding var state: String
-    @Binding var profesion: String
+    @Binding var profession: String
     @Binding var phone: String
     @Binding var email: String
     @Binding var web: String
@@ -22,7 +22,7 @@ struct ContactFormView: View {
         Form {
             Section(header: Text("NAME")) {
                 TextField("What is your name name", text: $name)
-                TextField("What is your profesion", text: $profesion)
+                TextField("What is your profession", text: $profession)
             }
             Section(header: Text("Address")) {
                 TextField("Street", text: $street)
@@ -42,7 +42,7 @@ struct ContactFormView: View {
 struct ContactFormView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContactFormView(name: .constant("Jan Mikláš"), street: .constant("Obecnice I 234"), zip: .constant("68765"), state: .constant("Strání"), profesion: .constant("Developer"), phone: .constant("773696282"), email: .constant("jenikmiklas@gmail.com"), web: .constant("github.com/JenikMiklas"))
+            ContactFormView(name: .constant("Jan Mikláš"), street: .constant("Obecnice I 234"), zip: .constant("68765"), state: .constant("Strání"), profession: .constant("Developer"), phone: .constant("773696282"), email: .constant("jenikmiklas@gmail.com"), web: .constant("github.com/JenikMiklas"))
                 .navigationBarTitle("Contact", displayMode: .inline)
         }
     }

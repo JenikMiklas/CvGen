@@ -16,7 +16,7 @@ struct NewPersonView: View {
             Badge(image: "photo", title: "profile photo")
             VerticalDivider()
             NavigationLink(
-                destination: ContactFormView(name: $cvgVM.name, street: $cvgVM.street, zip: $cvgVM.zip, state: $cvgVM.state),
+                destination: ContactFormView(name: $cvgVM.name, street: $cvgVM.street, zip: $cvgVM.zip, state: $cvgVM.state, profession: $cvgVM.profession, phone: $cvgVM.phone, email: $cvgVM.email, web: $cvgVM.web),
                 label: {
                     Badge(image: "signpost.left", title: "contact")
                 })
