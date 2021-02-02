@@ -9,19 +9,23 @@ import SwiftUI
 
 struct NewPersonView: View {
     
-    @ObservedObject var cvgVM: CvGenViewModel
+    @EnvironmentObject var cvgVM: CvGenViewModel
     
     var body: some View {
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
             Badge(image: "photo", title: "profile photo")
             VerticalDivider()
             NavigationLink(
-                destination: ContactFormView(name: $cvgVM.name, street: $cvgVM.street, zip: $cvgVM.zip, state: $cvgVM.state, profession: $cvgVM.profession, phone: $cvgVM.phone, email: $cvgVM.email, web: $cvgVM.web),
+                destination: ContactFormView(),
                 label: {
                     Badge(image: "signpost.left", title: "contact")
                 })
             VerticalDivider()
-            Badge(image: "shippingbox", title: "working experiences")
+            NavigationLink(
+                destination: WorkFormView(),
+                label: {
+                    Badge(image: "shippingbox", title: "working experiences")
+                })
             VerticalDivider()
             Badge(image: "studentdesk", title: "education")
             VerticalDivider()
@@ -36,7 +40,7 @@ struct NewPersonView_Previews: PreviewProvider {
     static let vm = CvGenViewModel(moc: PersistenceController.preview.container.viewContext)
     static var previews: some View {
         NavigationView {
-            NewPersonView(cvgVM: vm)
+            NewPersonView()
         }
     }
 }

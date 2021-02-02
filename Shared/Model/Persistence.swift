@@ -25,7 +25,7 @@ struct PersistenceController {
             let newAddress = Address(context: viewContext)
             newAddress.state = "SK"
             newAddress.street = "Bzince 55"
-            newAddress.zip = 62255
+            newAddress.zip = "62255"
             newPerson.address = newAddress
         }
         do {

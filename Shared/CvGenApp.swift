@@ -21,8 +21,8 @@ struct CvGenApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(cvgVM: cvgVM)
-                //.environmentObject(cvgVM)
+            ContentView()
+                .environmentObject(cvgVM)
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

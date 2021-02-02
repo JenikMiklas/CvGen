@@ -12,7 +12,7 @@ struct ContentView: View {
     
     //@Environment(\.managedObjectContext) private var viewContext
 
-    @ObservedObject var cvgVM: CvGenViewModel
+    @EnvironmentObject var cvgVM: CvGenViewModel
     
     /*@FetchRequest(entity: Person.entity(),
                   sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)],
@@ -24,9 +24,9 @@ struct ContentView: View {
             List {
                 ForEach(cvgVM.cvPersons) { person in
                     NavigationLink(
-                        destination: TestPersonView(person: person),
+                        destination: NewPersonView(),
                         label: {
-                            Text("\(person.name ?? String("dsads"))")
+                            Text("\(person.name ?? String(""))")
                         })
                 }
                 .onDelete(perform: deletePersons)
@@ -34,7 +34,7 @@ struct ContentView: View {
             .navigationBarTitle("CvGen")
             .toolbar {
                 NavigationLink(
-                    destination: NewPersonView(cvgVM: cvgVM),
+                    destination: NewPersonView(),
                     label: {
                         Image(systemName: "plus")
                     })
@@ -87,7 +87,7 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static let vm = CvGenViewModel(moc: PersistenceController.preview.container.viewContext)
     static var previews: some View {
-        ContentView(cvgVM: vm)
+        ContentView()
             //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

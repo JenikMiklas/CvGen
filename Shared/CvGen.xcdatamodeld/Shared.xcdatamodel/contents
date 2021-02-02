@@ -3,7 +3,7 @@
     <entity name="Address" representedClassName="Address" syncable="YES" codeGenerationType="class">
         <attribute name="state" optional="YES" attributeType="String"/>
         <attribute name="street" optional="YES" attributeType="String"/>
-        <attribute name="zip" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="zip" optional="YES" attributeType="String"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="address" inverseEntity="Person"/>
     </entity>
     <entity name="Education" representedClassName="Education" syncable="YES" codeGenerationType="class">
@@ -24,7 +24,7 @@
         <attribute name="position" optional="YES" attributeType="String"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="work" inverseEntity="Person"/>
     </entity>
-    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+    <entity name="Person" representedClassName="Person" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="born" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -44,11 +44,11 @@
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="skill" inverseEntity="Person"/>
     </entity>
     <elements>
-        <element name="Address" positionX="155.1293334960937" positionY="-14.32861328125001" width="122.4381103515625" height="89"/>
+        <element name="Address" positionX="155.1293334960937" positionY="-14.32861328125001" width="122.4381103515625" height="103"/>
         <element name="Education" positionX="546.4434814453125" positionY="-27.055908203125" width="128" height="118"/>
-        <element name="Jobs" positionX="834.0883178710938" positionY="53.26156616210938" width="128" height="118"/>
-        <element name="Person" positionX="-63" positionY="-9" width="128" height="223"/>
         <element name="Hobby" positionX="294.329345703125" positionY="-18.70077514648438" width="128" height="59"/>
+        <element name="Jobs" positionX="884.2628784179688" positionY="95.74160766601562" width="128" height="118"/>
+        <element name="Person" positionX="-63" positionY="-9" width="128" height="223"/>
         <element name="Skill" positionX="686.6890869140625" positionY="53.17575073242188" width="128" height="73"/>
     </elements>
 </model>

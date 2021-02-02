@@ -12,14 +12,7 @@ class CvGenViewModel: NSObject, ObservableObject {
     
     @Published var cvPersons: [Person] = []
     
-    @Published var name = ""
-    @Published var street = ""
-    @Published var zip = ""
-    @Published var state = ""
-    @Published var profession = ""
-    @Published var phone = ""
-    @Published var email = ""
-    @Published var web = ""
+    @Published var person: Person?
     
     private let fetchRequestController: NSFetchedResultsController<Person>
     var moc: NSManagedObjectContext
