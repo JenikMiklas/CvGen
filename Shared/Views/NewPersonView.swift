@@ -25,6 +25,11 @@ struct NewPersonView: View {
         }
         .padding(.top, 10)
         .navigationBarTitle("New User CV", displayMode: .inline)
+        .onAppear {
+            if cvgVM.person == nil {
+                cvgVM.person = Person(context: cvgVM.moc)
+            }
+        }
     }
 }
 
