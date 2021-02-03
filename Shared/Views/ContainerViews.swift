@@ -48,7 +48,7 @@ struct NewContetView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Company name", text: $header)
+                    TextField("Name", text: $header)
                     TextEditor(text: $content)
                         .opacity(content == "Description" ? 0.25 : 1)
                         .frame(height: 300)
@@ -65,7 +65,7 @@ struct NewContetView: View {
                         }
                         showSheet.toggle()
                     }, label: {
-                        Text(cvgVM.selectedObject != nil ? "Update job" : "Add job")
+                        Text(cvgVM.getButtonTitle())
                     })
                 }
             }
@@ -76,7 +76,7 @@ struct NewContetView: View {
                 from = data.2
                 to = data.3
             }
-            .navigationBarTitle("Insert new Job record", displayMode: .inline)
+            .navigationBarTitle(cvgVM.getViewTitle(), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 cvgVM.selectedObject = nil
                 showSheet.toggle()

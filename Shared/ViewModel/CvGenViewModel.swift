@@ -96,11 +96,22 @@ class CvGenViewModel: NSObject, ObservableObject {
     
     func updateContent(header: String, content: String, from: Date, to: Date) {
         objectWillChange.send()
-        guard let job = selectedObject as? Jobs else { return }
-        job.company = header
-        job.position = content
-        job.periodFrom = from
-        job.periodTo = to
+        switch section {
+        case .job:
+            guard let job = selectedObject as? Jobs else { return }
+            job.company = header
+            job.position = content
+            job.periodFrom = from
+            job.periodTo = to
+        case .education:
+            guard let school = selectedObject as? Education else { return }
+            school.school = header
+            school.course = content
+            school.periodFrom = from
+            school.periodTo = to
+        default:
+           print("default update")
+        }
         savePerson()
         selectedObject = nil
     }
@@ -121,6 +132,28 @@ class CvGenViewModel: NSObject, ObservableObject {
             }
         default:
             return ("default", "default", Date(), Date())
+        }
+    }
+    
+    func getButtonTitle() -> String {
+        switch section {
+        case .job:
+            return selectedObject != nil ? "Update job" : "Add job"
+        case .education:
+            return selectedObject != nil ? "Update school" : "Add school"
+        default:
+            return ""
+        }
+    }
+    
+    func getViewTitle() -> String {
+        switch section {
+        case .job:
+            return "Insert new Job record"
+        case .education:
+            return "Insert new School record"
+        default:
+            return ""
         }
     }
     
