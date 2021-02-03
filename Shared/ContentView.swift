@@ -56,9 +56,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let vm = CvGenViewModel(moc: PersistenceController.preview.container.viewContext)
     static var previews: some View {
         ContentView()
+            .environmentObject(CvGenViewModel(moc: PersistenceController.shared.container.viewContext))
             //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -13,6 +13,7 @@ class CvGenViewModel: NSObject, ObservableObject {
     @Published var cvPersons: [Person] = []
     
     @Published var person: Person?
+    @Published var selectedObject: NSManagedObject?
     
     private let fetchRequestController: NSFetchedResultsController<Person>
     var moc: NSManagedObjectContext
@@ -51,6 +52,32 @@ class CvGenViewModel: NSObject, ObservableObject {
     func deletePerson(offsets: IndexSet) {
         offsets.map { cvPersons[$0] }.forEach(moc.delete)
         savePerson()
+    }
+    
+    func deleteJob(offsets: IndexSet) {
+        offsets.map { person!.jobsArray[$0] }.forEach(moc.delete)
+        savePerson()
+    }
+    
+    func createJob(company: String, position: String, from: Date, to: Date) {
+        let job = Jobs(context: moc)
+        job.company = company
+        job.position = position
+        job.periodFrom = from
+        job.periodTo = to
+        job.person = person
+        savePerson()
+    }
+    
+    func updateJob(company: String, position: String, from: Date, to: Date) {
+        objectWillChange.send()
+        guard let job = selectedObject as? Jobs else { return }
+        job.company = company
+        job.position = position
+        job.periodFrom = from
+        job.periodTo = to
+        savePerson()
+        selectedObject = nil
     }
     
 }
