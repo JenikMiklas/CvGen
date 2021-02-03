@@ -35,6 +35,13 @@ extension Person {
             $0.periodTo! > $1.periodTo!
         }
     }
+    
+    public var shoolArray: [Education] {
+        let set = school as? Set<Education> ?? []
+        return set.sorted {
+            $0.periodTo! > $1.periodTo!
+        }
+    }
 
 }
 

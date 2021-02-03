@@ -47,6 +47,8 @@ struct NewPersonView: View {
             ContactFormView()
         case "shippingbox":
             WorkFormView()
+        case "studentdesk":
+            SchoolView()
         default:
             Text("Work in progress....")
         }

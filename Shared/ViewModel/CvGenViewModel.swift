@@ -8,12 +8,21 @@
 import Foundation
 import CoreData
 
+enum Sections {
+    case education
+    case job
+    case hobby
+    case menu
+}
+
 class CvGenViewModel: NSObject, ObservableObject {
     
     @Published var cvPersons: [Person] = []
     
     @Published var person: Person?
     @Published var selectedObject: NSManagedObject?
+    
+    @Published var section: Sections = .menu
     
     private let fetchRequestController: NSFetchedResultsController<Person>
     var moc: NSManagedObjectContext
@@ -35,6 +44,9 @@ class CvGenViewModel: NSObject, ObservableObject {
     
     func createPerson() {
         let newPerson = Person(context: moc)
+        if newPerson.address == nil {
+            newPerson.address = Address(context: moc)
+        }
         newPerson.name = ""
         newPerson.job = "Fill in new CV" 
         newPerson.born = Date()
@@ -54,30 +66,49 @@ class CvGenViewModel: NSObject, ObservableObject {
         savePerson()
     }
     
-    func deleteJob(offsets: IndexSet) {
+    func deleteContect(offsets: IndexSet) {
         offsets.map { person!.jobsArray[$0] }.forEach(moc.delete)
         savePerson()
     }
     
-    func createJob(company: String, position: String, from: Date, to: Date) {
+    func createContent(header: String, content: String, from: Date, to: Date) {
         let job = Jobs(context: moc)
-        job.company = company
-        job.position = position
+        job.company = header
+        job.position = content
         job.periodFrom = from
         job.periodTo = to
         job.person = person
         savePerson()
     }
     
-    func updateJob(company: String, position: String, from: Date, to: Date) {
+    func updateContent(header: String, content: String, from: Date, to: Date) {
         objectWillChange.send()
         guard let job = selectedObject as? Jobs else { return }
-        job.company = company
-        job.position = position
+        job.company = header
+        job.position = content
         job.periodFrom = from
         job.periodTo = to
         savePerson()
         selectedObject = nil
+    }
+    
+    func loadContent() -> (String, String, Date, Date) {
+        switch section {
+        case .job:
+            if let job = selectedObject as? Jobs {
+                return (job.company!, job.position!, job.periodFrom!, job.periodTo!)
+            } else {
+                return ("", "", Date(), Date())
+            }
+        case .education:
+            if let school = selectedObject as? Education {
+                return (school.school!, school.course!, school.periodFrom!, school.periodTo!)
+            } else {
+                return ("", "", Date(), Date())
+            }
+        default:
+            return ("default", "default", Date(), Date())
+        }
     }
     
 }

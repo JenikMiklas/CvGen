@@ -14,6 +14,8 @@
 		7F42888F25C971A5000CC391 /* ContactFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42888E25C971A5000CC391 /* ContactFormView.swift */; };
 		7F42889225C98A0B000CC391 /* WorkFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42889125C98A0B000CC391 /* WorkFormView.swift */; };
 		7F5A330525CAE9E80035A248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F5A330425CAE9E80035A248 /* Assets.xcassets */; };
+		7F5A330A25CB15380035A248 /* SchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330925CB15370035A248 /* SchoolView.swift */; };
+		7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330C25CB41D70035A248 /* ContainerViews.swift */; };
 		7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */; };
 		7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3125C022D6000754C0 /* CvGenApp.swift */; };
 		7F765A4925C022D9000754C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3225C022D6000754C0 /* ContentView.swift */; };
@@ -37,6 +39,8 @@
 		7F42888E25C971A5000CC391 /* ContactFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFormView.swift; sourceTree = "<group>"; };
 		7F42889125C98A0B000CC391 /* WorkFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFormView.swift; sourceTree = "<group>"; };
 		7F5A330425CAE9E80035A248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7F5A330925CB15370035A248 /* SchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolView.swift; sourceTree = "<group>"; };
+		7F5A330C25CB41D70035A248 /* ContainerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViews.swift; sourceTree = "<group>"; };
 		7F765A3025C022D6000754C0 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		7F765A3125C022D6000754C0 /* CvGenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvGenApp.swift; sourceTree = "<group>"; };
 		7F765A3225C022D6000754C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 				7F7780C125C8949D00D5CDEF /* NewPersonView.swift */,
 				7F42888E25C971A5000CC391 /* ContactFormView.swift */,
 				7F42889125C98A0B000CC391 /* WorkFormView.swift */,
+				7F5A330925CB15370035A248 /* SchoolView.swift */,
+				7F5A330C25CB41D70035A248 /* ContainerViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 				7F765A4B25C022D9000754C0 /* Persistence.swift in Sources */,
 				7FA831D525C9EC3F00E1A3B4 /* Person+CoreDataClass.swift in Sources */,
 				7F765A6B25C02CFB000754C0 /* Home.swift in Sources */,
+				7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */,
 				7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */,
+				7F5A330A25CB15380035A248 /* SchoolView.swift in Sources */,
 				7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */,
 				7F765A4925C022D9000754C0 /* ContentView.swift in Sources */,
 				7F7780C225C8949E00D5CDEF /* NewPersonView.swift in Sources */,
