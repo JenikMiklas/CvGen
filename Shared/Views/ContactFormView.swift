@@ -63,18 +63,16 @@ struct ContactFormView: View {
         }
         .navigationBarTitle("Contact", displayMode: .inline)
         .onAppear {
-            if cvgVM.person == nil {
-                cvgVM.createPerson()
-            } else {
-                name = cvgVM.person?.name ?? ""
-                street = cvgVM.person?.address?.street ?? ""
-                zip = cvgVM.person?.address?.zip ?? ""
-                state = cvgVM.person?.address?.state ?? ""
-                profession = cvgVM.person?.job ?? ""
-                phone = cvgVM.person?.phone ?? ""
-                email = cvgVM.person?.email ?? ""
-                web = cvgVM.person?.web ?? ""
-            }
+            name = cvgVM.person?.name ?? ""
+            street = cvgVM.person?.address?.street ?? ""
+            zip = cvgVM.person?.address?.zip ?? ""
+            state = cvgVM.person?.address?.state ?? ""
+            profession = cvgVM.person?.job ?? ""
+            phone = cvgVM.person?.phone ?? ""
+            email = cvgVM.person?.email ?? ""
+            web = cvgVM.person?.web ?? ""
+           
+            
             if let person = cvgVM.person {
                 print(person)
             }

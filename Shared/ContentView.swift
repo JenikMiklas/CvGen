@@ -33,11 +33,9 @@ struct ContentView: View {
             }
             .navigationBarTitle("CvGen")
             .toolbar {
-                NavigationLink(
-                    destination: NewPersonView(),
-                    label: {
-                        Image(systemName: "plus")
-                    })
+                Button(action: { addPerson() }, label: {
+                    Image(systemName: "plus")
+                })
             }
         }
     }
@@ -45,18 +43,7 @@ struct ContentView: View {
     //MARK: Testting adding and deleting
     private func addPerson() {
         withAnimation {
-            let newPerson = Person(context: cvgVM.moc)
-            newPerson.name = "Já"
-            newPerson.born = Date()
-
-            do {
-                try cvgVM.moc.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            cvgVM.createPerson()
         }
     }
 

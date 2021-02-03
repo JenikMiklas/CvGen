@@ -33,12 +33,10 @@ class CvGenViewModel: NSObject, ObservableObject {
     }
     
     func createPerson() {
-        if person == nil {
-            person = Person(context: moc)
-            if person?.address == nil {
-                person?.address = Address(context: moc)
-            }
-        }
+        let newPerson = Person(context: moc)
+        newPerson.name = "New CV"
+        newPerson.born = Date()
+        savePerson()
     }
     
     func savePerson() {

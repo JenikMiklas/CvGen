@@ -38,11 +38,7 @@ struct NewPersonView: View {
                 cvgVM.person = person
             }
         }
-        .onDisappear {
-            if person != nil {
-                cvgVM.person = nil
-            }
-        }
+        
     }
     
    @ViewBuilder private func destination(key: String) -> some View {

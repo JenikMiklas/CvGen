@@ -34,13 +34,7 @@ struct WorkFormView: View {
             NewJobView(showSheet: $showSheet)
         })
         .onAppear {
-            if cvgVM.person == nil {
-                cvgVM.person = Person(context: cvgVM.moc)
-            } else {
-                /*if let jobs = cvgVM.person?.work {
-                    self.jobs = jobs
-                }*/
-            }
+            print(cvgVM.person?.work)
         }
     }
     
