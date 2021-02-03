@@ -30,7 +30,24 @@ class CvGenViewModel: NSObject, ObservableObject {
         } catch {
             print("Error: Cannot fetch Person items!!!")
         }
-        
+    }
+    
+    func createPerson() {
+        if person == nil {
+            person = Person(context: moc)
+            if person?.address == nil {
+                person?.address = Address(context: moc)
+            }
+        }
+    }
+    
+    func savePerson() {
+        do {
+            try moc.save()
+            person = nil
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }

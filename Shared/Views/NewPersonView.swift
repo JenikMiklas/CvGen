@@ -10,6 +10,7 @@ import SwiftUI
 struct NewPersonView: View {
     
     @EnvironmentObject var cvgVM: CvGenViewModel
+    var person: Person?
     
     var body: some View {
         
@@ -24,17 +25,19 @@ struct NewPersonView: View {
                 VerticalDivider()
             }
             .frame(maxWidth: .infinity)
-            /*HStack(spacing: 50) {
-                Button(action: { cvgVM.person = nil }, label: {
-                    Badge(image: "minus.circle", title: "remove")
-                })
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            HStack(spacing: 50) {
+                Button(action: { cvgVM.savePerson() }, label: {
                     Badge(image: "person.crop.circle.badge.plus", title: "save")
                 })
-            }.padding(.bottom, 20)*/
+            }.padding(.bottom, 20)
         }
         .padding(.top, 10)
         .navigationBarTitle("New User CV", displayMode: .inline)
+        .onAppear {
+            if person != nil {
+                cvgVM.person = person
+            }
+        }
     }
     
    @ViewBuilder private func destination(key: String) -> some View {

@@ -64,10 +64,7 @@ struct ContactFormView: View {
         .navigationBarTitle("Contact", displayMode: .inline)
         .onAppear {
             if cvgVM.person == nil {
-                cvgVM.person = Person(context: cvgVM.moc)
-                if cvgVM.person?.address == nil {
-                    cvgVM.person?.address = Address(context: cvgVM.moc)
-                }
+                cvgVM.createPerson()
             } else {
                 name = cvgVM.person?.name ?? ""
                 street = cvgVM.person?.address?.street ?? ""

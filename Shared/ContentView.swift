@@ -24,7 +24,7 @@ struct ContentView: View {
             List {
                 ForEach(cvgVM.cvPersons) { person in
                     NavigationLink(
-                        destination: NewPersonView(),
+                        destination: NewPersonView(person: person),
                         label: {
                             Text("\(person.name ?? String(""))")
                         })
