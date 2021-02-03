@@ -34,7 +34,8 @@ class CvGenViewModel: NSObject, ObservableObject {
     
     func createPerson() {
         let newPerson = Person(context: moc)
-        newPerson.name = "New CV"
+        newPerson.name = ""
+        newPerson.job = "Fill in new CV" 
         newPerson.born = Date()
         savePerson()
     }

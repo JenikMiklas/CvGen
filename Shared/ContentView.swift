@@ -26,7 +26,7 @@ struct ContentView: View {
                     NavigationLink(
                         destination: NewPersonView(person: person),
                         label: {
-                            Text("\(person.name ?? String(""))")
+                            CardView(name: person.name ?? "", job: person.job ?? "", phone: person.phone ?? "", email: person.email ?? "")
                         })
                 }
                 .onDelete(perform: deletePersons)
@@ -55,17 +55,45 @@ struct ContentView: View {
 
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static let vm = CvGenViewModel(moc: PersistenceController.preview.container.viewContext)
     static var previews: some View {
         ContentView()
             //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+struct CardView: View {
+    
+    let name: String
+    let job: String
+    let phone: String
+    let email: String
+    
+    var body: some View {
+        HStack(alignment: .center) {
+            Image("face")
+                .resizable()
+                .frame(width: 75, height: 75)
+                .clipShape(Circle())
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .trailing) {
+                Text(job)
+                    .font(.caption)
+                Text(phone)
+                    .font(.caption)
+                Text(email)
+                    .font(.caption)
+            }
+            Spacer()
+            VStack {
+                Text(name)
+                    .font(.title3)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(5)
+        //.background(Color.gray)
+        //.cornerRadius(10)
     }
 }
