@@ -72,13 +72,26 @@ class CvGenViewModel: NSObject, ObservableObject {
     }
     
     func createContent(header: String, content: String, from: Date, to: Date) {
-        let job = Jobs(context: moc)
-        job.company = header
-        job.position = content
-        job.periodFrom = from
-        job.periodTo = to
-        job.person = person
+        switch section {
+        case .job:
+            let job = Jobs(context: moc)
+            job.company = header
+            job.position = content
+            job.periodFrom = from
+            job.periodTo = to
+            job.person = person
+            savePerson()
+        case .education:
+            let school = Education(context: moc)
+            school.school = header
+            school.course = content
+            school.periodFrom = from
+            school.periodTo = to
+            school.person = person
         savePerson()
+        default:
+            savePerson()
+        }
     }
     
     func updateContent(header: String, content: String, from: Date, to: Date) {
