@@ -75,6 +75,9 @@ struct ContactFormView: View {
                 email = cvgVM.person?.email ?? ""
                 web = cvgVM.person?.web ?? ""
             }
+            if let person = cvgVM.person {
+                print(person)
+            }
         }
     }
 }

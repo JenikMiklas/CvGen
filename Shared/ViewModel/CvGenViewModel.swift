@@ -44,7 +44,6 @@ class CvGenViewModel: NSObject, ObservableObject {
     func savePerson() {
         do {
             try moc.save()
-            person = nil
         } catch {
             print(error.localizedDescription)
         }
