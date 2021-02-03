@@ -12,27 +12,54 @@ struct NewPersonView: View {
     @EnvironmentObject var cvgVM: CvGenViewModel
     
     var body: some View {
+        
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-            Badge(image: "photo", title: "profile photo")
-            VerticalDivider()
-            NavigationLink(
-                destination: ContactFormView(),
-                label: {
-                    Badge(image: "signpost.left", title: "contact")
+            ForEach(1...5, id: \.self) { index in
+                let tup = getPhotoTitle(index: index)
+                NavigationLink(
+                    destination: destination(key: tup.0),
+                    label: {
+                        Badge(image: tup.0, title: tup.1)
+                    })
+                VerticalDivider()
+            }
+            .frame(maxWidth: .infinity)
+            /*HStack(spacing: 50) {
+                Button(action: { cvgVM.person = nil }, label: {
+                    Badge(image: "minus.circle", title: "remove")
                 })
-            VerticalDivider()
-            NavigationLink(
-                destination: WorkFormView(),
-                label: {
-                    Badge(image: "shippingbox", title: "working experiences")
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Badge(image: "person.crop.circle.badge.plus", title: "save")
                 })
-            VerticalDivider()
-            Badge(image: "studentdesk", title: "education")
-            VerticalDivider()
-            Badge(image: "gamecontroller", title: "hobbies")
+            }.padding(.bottom, 20)*/
         }
         .padding(.top, 10)
         .navigationBarTitle("New User CV", displayMode: .inline)
+    }
+    
+   @ViewBuilder private func destination(key: String) -> some View {
+        switch key {
+        case "phone.circle":
+            ContactFormView()
+        case "shippingbox":
+            WorkFormView()
+        default:
+            Text("Work in progress....")
+        }
+    }
+    private func getPhotoTitle(index: Int) -> (String, String) {
+        switch index {
+        case 1:
+            return ("photo", "profile photo")
+        case 2:
+            return ("phone.circle", "contact")
+        case 3:
+            return ("shippingbox", "working experiences")
+        case 4:
+            return ("studentdesk", "education")
+        default:
+            return ("gamecontroller", "hobbies")
+        }
     }
 }
 

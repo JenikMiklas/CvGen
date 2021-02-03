@@ -31,7 +31,7 @@ struct WorkFormView: View {
             Text("Add")
         }))
         .sheet(isPresented: $showSheet, content: {
-            NewJobView()
+            NewJobView(showSheet: $showSheet)
         })
         .onAppear {
             if cvgVM.person == nil {
@@ -60,6 +60,8 @@ struct NewJobView: View {
     
     @EnvironmentObject var cvgVM: CvGenViewModel
     
+    @Binding var showSheet: Bool
+    
     @State private var company = ""
     @State private var position = ""
     @State private var from = Date()
@@ -81,6 +83,7 @@ struct NewJobView: View {
                     job.periodFrom = from
                     job.periodTo = to
                     job.person = cvgVM.person
+                    showSheet.toggle()
                 }, label: {
                     Text("Add job")
                 })
