@@ -47,6 +47,11 @@ class CvGenViewModel: NSObject, ObservableObject {
         }
     }
     
+    func deletePerson(offsets: IndexSet) {
+        offsets.map { cvPersons[$0] }.forEach(moc.delete)
+        savePerson()
+    }
+    
 }
 
 extension CvGenViewModel: NSFetchedResultsControllerDelegate {

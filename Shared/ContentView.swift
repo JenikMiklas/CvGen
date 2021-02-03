@@ -49,16 +49,7 @@ struct ContentView: View {
 
     private func deletePersons(offsets: IndexSet) {
         withAnimation {
-            offsets.map { cvgVM.cvPersons[$0] }.forEach(cvgVM.moc.delete)
-
-            do {
-                try cvgVM.moc.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            cvgVM.deletePerson(offsets: offsets)
         }
     }
 
