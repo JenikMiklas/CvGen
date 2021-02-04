@@ -25,7 +25,7 @@ struct HTMLString {
 <div class="resume">
    <div class="resume_left">
      <div class="resume_profile">
-       <img src="https://i.imgur.com/eCijVBe.png" alt="profile_pic">
+       <img src="jenikface.jpg" alt="profile_pic">
      </div>
      <div class="resume_content">
        <div class="resume_item resume_info">
@@ -252,7 +252,7 @@ struct HTMLString {
     <div class="resume">
     <div class="resume_left">
      <div class="resume_profile">
-       <img src="face.png" alt="profile_pic">
+       <img src="jenikface.jpg" alt="profile_pic">
      </div>
      <div class="resume_content">
        <div class="resume_item resume_info">
