@@ -13,6 +13,7 @@ enum Sections {
     case job
     case hobby
     case menu
+    case skill
 }
 
 class CvGenViewModel: NSObject, ObservableObject {
@@ -67,7 +68,16 @@ class CvGenViewModel: NSObject, ObservableObject {
     }
     
     func deleteContect(offsets: IndexSet) {
-        offsets.map { person!.jobsArray[$0] }.forEach(moc.delete)
+        switch section {
+        case .job:
+            offsets.map { person!.jobsArray[$0] }.forEach(moc.delete)
+        case .education:
+            offsets.map { person!.shoolArray[$0] }.forEach(moc.delete)
+        case .skill:
+            offsets.map { person!.skillArray[$0] }.forEach(moc.delete)
+        default:
+            return
+        }
         savePerson()
     }
     
@@ -88,7 +98,13 @@ class CvGenViewModel: NSObject, ObservableObject {
             school.periodFrom = from
             school.periodTo = to
             school.person = person
-        savePerson()
+            savePerson()
+        case .skill:
+            let skill = Skill(context: moc)
+            skill.name = header
+            skill.score = Int16(content) ?? 0
+            skill.person = person
+            savePerson()
         default:
             savePerson()
         }
@@ -109,6 +125,10 @@ class CvGenViewModel: NSObject, ObservableObject {
             school.course = content
             school.periodFrom = from
             school.periodTo = to
+        case .skill:
+            guard let skill = selectedObject as? Skill else { return }
+            skill.name = header
+            skill.score = Int16(content) ?? 0
         default:
            print("default update")
         }
@@ -130,6 +150,12 @@ class CvGenViewModel: NSObject, ObservableObject {
             } else {
                 return ("", "", Date(), Date())
             }
+        case .skill:
+            if let skill = selectedObject as? Skill {
+                return (skill.name!, "\(skill.score)", Date(), Date())
+            } else {
+                return ("", "", Date(), Date())
+            }
         default:
             return ("default", "default", Date(), Date())
         }
@@ -141,6 +167,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             return selectedObject != nil ? "Update job" : "Add job"
         case .education:
             return selectedObject != nil ? "Update school" : "Add school"
+        case .skill:
+            return selectedObject != nil ? "Update skill" : "Add skill"
         default:
             return ""
         }
@@ -152,6 +180,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             return "Insert new Job record"
         case .education:
             return "Insert new School record"
+        case .skill:
+            return "Insert new Skill record"
         default:
             return ""
         }

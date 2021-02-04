@@ -42,7 +42,13 @@ extension Person {
             $0.periodTo! > $1.periodTo!
         }
     }
-
+    
+    public var skillArray: [Skill] {
+        let set = skill as? Set<Skill> ?? []
+        return set.sorted {
+            $0.name! < $1.name!
+        }
+    }
 }
 
 // MARK: Generated accessors for hobby

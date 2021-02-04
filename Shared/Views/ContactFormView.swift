@@ -60,6 +60,15 @@ struct ContactFormView: View {
                         cvgVM.person?.web = value
                     }
             }
+            Section {
+                HStack {
+                    Spacer()
+                    Button(action: { cvgVM.savePerson() }, label: {
+                        Text("Save()")
+                    })
+                    Spacer()
+                }
+            }
         }
         .navigationBarTitle("Contact", displayMode: .inline)
         .onAppear {

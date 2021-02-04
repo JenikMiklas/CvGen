@@ -15,7 +15,7 @@ struct NewPersonView: View {
     var body: some View {
         
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-            ForEach(1...5, id: \.self) { index in
+            ForEach(1...6, id: \.self) { index in
                 let tup = getPhotoTitle(index: index)
                 NavigationLink(
                     destination: destination(key: tup.0),
@@ -26,9 +26,11 @@ struct NewPersonView: View {
             }
             .frame(maxWidth: .infinity)
             HStack(spacing: 50) {
-                Button(action: { cvgVM.savePerson() }, label: {
-                    Badge(image: "person.crop.circle.badge.plus", title: "save")
-                })
+                NavigationLink(
+                    destination: Text("Work in progress...."),
+                    label: {
+                        Badge(image: "printer", title: "Print CV")
+                    })
             }.padding(.bottom, 20)
         }
         .padding(.top, 10)
@@ -48,6 +50,8 @@ struct NewPersonView: View {
             WorkFormView()
         case "studentdesk":
             SchoolView()
+        case "wrench.and.screwdriver":
+           SkillView()
         default:
             Text("Work in progress....")
         }
@@ -59,8 +63,10 @@ struct NewPersonView: View {
         case 2:
             return ("phone.circle", "contact")
         case 3:
-            return ("shippingbox", "working experiences")
+            return ("wrench.and.screwdriver", "skill")
         case 4:
+            return ("shippingbox", "working experiences")
+        case 5:
             return ("studentdesk", "education")
         default:
             return ("gamecontroller", "hobbies")
@@ -84,36 +90,5 @@ struct NewPersonView_Previews: PreviewProvider {
         NavigationView {
             NewPersonView()
         }
-    }
-}
-
-struct Badge: View {
-    
-    let image: String
-    let title: String
-    
-    var body: some View {
-        VStack {
-            Circle()
-                .frame(width: 100, height: 100)
-                .foregroundColor(.gray)
-                .overlay(
-                    Image(systemName: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 50))
-            Text(title)
-                .font(.title3)
-        }
-        .foregroundColor(.primary)
-    }
-}
-
-struct VerticalDivider: View {
-    var body: some View {
-        Rectangle()
-            .frame(width: 7, height: 50)
-            .cornerRadius(8)
-            .foregroundColor(.gray)
     }
 }

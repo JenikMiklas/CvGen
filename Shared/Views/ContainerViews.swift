@@ -65,7 +65,11 @@ struct NewContetView: View {
                         }
                         showSheet.toggle()
                     }, label: {
-                        Text(cvgVM.getButtonTitle())
+                        HStack {
+                            Spacer()
+                            Text(cvgVM.getButtonTitle())
+                            Spacer()
+                        }
                     })
                 }
             }
@@ -85,5 +89,56 @@ struct NewContetView: View {
                 Text("Close")
             }))
         }
+    }
+}
+
+struct Badge: View {
+    
+    let image: String
+    let title: String
+    
+    var body: some View {
+        VStack {
+            Circle()
+                .frame(width: 100, height: 100)
+                .foregroundColor(.gray)
+                .overlay(
+                    Image(systemName: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50))
+            Text(title)
+                .font(.title3)
+        }
+        .foregroundColor(.primary)
+    }
+}
+
+struct VerticalDivider: View {
+    var body: some View {
+        Rectangle()
+            .frame(width: 7, height: 50)
+            .cornerRadius(8)
+            .foregroundColor(.gray)
+    }
+}
+
+struct SkillCard: View {
+    
+    let name: String
+    let score:Int16
+    
+    var body: some View {
+        VStack {
+            Text(name)
+                .font(.title2)
+            Divider()
+            Text("\(score) %")
+                .font(.title3)
+        }
+        //.frame(maxWidth: .infinity)
+        .padding()
+        .background(Color.gray)
+        .cornerRadius(10)
     }
 }
