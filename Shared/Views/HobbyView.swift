@@ -1,13 +1,13 @@
 //
-//  SkillView.swift
+//  HobbyView.swift
 //  CvGen (iOS)
 //
-//  Created by Jan Miklas on 03.02.2021.
+//  Created by Jan Miklas on 04.02.2021.
 //
 
 import SwiftUI
 
-struct SkillView: View {
+struct HobbyView: View {
     
     @EnvironmentObject var cvgVM: CvGenViewModel
     
@@ -15,15 +15,15 @@ struct SkillView: View {
     
     var body: some View {
         List {
-            ForEach(cvgVM.person?.skillArray ?? [], id: \.self) { skill in
-                ContetView(header: skill.name ?? "", text: "\(skill.score)", from: nil, to: nil)
+            ForEach(cvgVM.person?.hobbyArray ?? [], id: \.self) { hobby in
+                ContetView(header: hobby.name ?? "", text: nil, from: nil, to: nil)
                     .onTapGesture {
-                        cvgVM.selectedObject = skill
+                        cvgVM.selectedObject = hobby
                         showSheet.toggle()
                     }
             }.onDelete(perform: deleteSchool)
         }
-        .navigationBarTitle("Skills")
+        .navigationBarTitle("Hobbies")
         .navigationBarItems(trailing: Button(action: { showSheet.toggle() }, label: {
             Text("Add")
         }))
@@ -32,8 +32,8 @@ struct SkillView: View {
             
         })
         .onAppear {
-            cvgVM.section = .skill
-            //print(cvgVM.person?.work)
+            cvgVM.section = .hobby
+            //print(cvgVM.person?.hobby)
         }
     }
     
@@ -44,8 +44,8 @@ struct SkillView: View {
     }
 }
 
-struct SkillView_Previews: PreviewProvider {
+struct HobbyView_Previews: PreviewProvider {
     static var previews: some View {
-        SkillView()
+        HobbyView()
     }
 }

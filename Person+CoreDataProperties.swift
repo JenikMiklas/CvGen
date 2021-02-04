@@ -49,6 +49,13 @@ extension Person {
             $0.name! < $1.name!
         }
     }
+    
+    public var hobbyArray: [Hobby] {
+        let set = hobby as? Set<Hobby> ?? []
+        return set.sorted {
+            $0.name! < $1.name!
+        }
+    }
 }
 
 // MARK: Generated accessors for hobby

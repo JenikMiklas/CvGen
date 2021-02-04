@@ -52,6 +52,8 @@ struct NewPersonView: View {
             SchoolView()
         case "wrench.and.screwdriver":
            SkillView()
+        case "gamecontroller":
+           HobbyView()
         default:
             Text("Work in progress....")
         }

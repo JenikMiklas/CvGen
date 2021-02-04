@@ -62,38 +62,3 @@ struct ContentView_Previews: PreviewProvider {
             //.environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
-
-struct CardView: View {
-    
-    let name: String
-    let job: String
-    let phone: String
-    let email: String
-    
-    var body: some View {
-        HStack(alignment: .center) {
-            Image("face")
-                .resizable()
-                .frame(width: 75, height: 75)
-                .clipShape(Circle())
-                .aspectRatio(contentMode: .fit)
-            VStack(alignment: .trailing) {
-                Text(job)
-                    .font(.caption)
-                Text(phone)
-                    .font(.caption)
-                Text(email)
-                    .font(.caption)
-            }
-            Spacer()
-            VStack {
-                Text(name)
-                    .font(.title3)
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(5)
-        //.background(Color.gray)
-        //.cornerRadius(10)
-    }
-}

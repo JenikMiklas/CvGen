@@ -9,24 +9,31 @@ import SwiftUI
 
 struct ContetView: View {
     
+    @EnvironmentObject var cvgVM: CvGenViewModel
+    
     let header: String
-    let text: String
-    let from: Date
-    let to: Date
+    let text: String?
+    let from: Date?
+    let to: Date?
     
     var body: some View {
         VStack {
             Text(header)
                 .font(.title2)
-            Divider()
-            Text(text)
-            Divider()
-            HStack {
-                Text(DateFormatter.localizedString(from: from, dateStyle: .short, timeStyle: .none))
-                Spacer()
-                Text(DateFormatter.localizedString(from: to, dateStyle: .short, timeStyle: .none))
+            if cvgVM.section != .hobby {
+                Divider()
+                Text(text!)
+                if cvgVM.section != .skill {
+                    Divider()
+                    HStack {
+                        Text(DateFormatter.localizedString(from: from!, dateStyle: .short, timeStyle: .none))
+                        Spacer()
+                        Text(DateFormatter.localizedString(from: to!, dateStyle: .short, timeStyle: .none))
+                    }
+                }
             }
         }
+        .frame(maxWidth: .infinity)
         .padding()
         .background(Color.gray)
         .cornerRadius(10)
@@ -52,7 +59,7 @@ struct NewContetView: View {
                     if cvgVM.section != .hobby {
                         TextEditor(text: $content)
                             .opacity(content == "Description" ? 0.25 : 1)
-                            .frame(height: cvgVM.section == .skill ? 0 : 300)
+                            .frame(height: cvgVM.section == .skill ? nil : 300)
                         if cvgVM.section != .skill {
                             HStack {
                                 DatePicker("from", selection: $from, displayedComponents: .date)
@@ -131,22 +138,37 @@ struct VerticalDivider: View {
     }
 }
 
-struct SkillCard: View {
+struct CardView: View {
     
     let name: String
-    let score:Int16
+    let job: String
+    let phone: String
+    let email: String
     
     var body: some View {
-        VStack {
-            Text(name)
-                .font(.title2)
-            Divider()
-            Text("\(score) %")
-                .font(.title3)
+        HStack(alignment: .center) {
+            Image("face")
+                .resizable()
+                .frame(width: 75, height: 75)
+                .clipShape(Circle())
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .trailing) {
+                Text(job)
+                    .font(.caption)
+                Text(phone)
+                    .font(.caption)
+                Text(email)
+                    .font(.caption)
+            }
+            Spacer()
+            VStack {
+                Text(name)
+                    .font(.title3)
+            }
         }
-        //.frame(maxWidth: .infinity)
-        .padding()
-        .background(Color.gray)
-        .cornerRadius(10)
+        .frame(maxWidth: .infinity)
+        .padding(5)
+        //.background(Color.gray)
+        //.cornerRadius(10)
     }
 }

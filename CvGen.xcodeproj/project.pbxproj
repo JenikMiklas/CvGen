@@ -30,6 +30,7 @@
 		7FA831D525C9EC3F00E1A3B4 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA831D125C9EC3F00E1A3B4 /* Person+CoreDataClass.swift */; };
 		7FA831D625C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA831D225C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift */; };
 		7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0008925C2151E004A89BB /* TestPersonView.swift */; };
+		7FE54E9425CC26B800674695 /* HobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE54E9325CC26B800674695 /* HobbyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		7FA831D125C9EC3F00E1A3B4 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7FA831D225C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7FB0008925C2151E004A89BB /* TestPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersonView.swift; sourceTree = "<group>"; };
+		7FE54E9325CC26B800674695 /* HobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				7F42889125C98A0B000CC391 /* WorkFormView.swift */,
 				7F5A330925CB15370035A248 /* SchoolView.swift */,
 				7F5A330F25CB53B20035A248 /* SkillView.swift */,
+				7FE54E9325CC26B800674695 /* HobbyView.swift */,
 				7F5A330C25CB41D70035A248 /* ContainerViews.swift */,
 			);
 			path = Views;
@@ -234,6 +237,7 @@
 				7FA831D525C9EC3F00E1A3B4 /* Person+CoreDataClass.swift in Sources */,
 				7F765A6B25C02CFB000754C0 /* Home.swift in Sources */,
 				7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */,
+				7FE54E9425CC26B800674695 /* HobbyView.swift in Sources */,
 				7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */,
 				7F5A331025CB53B20035A248 /* SkillView.swift in Sources */,
 				7F5A330A25CB15380035A248 /* SchoolView.swift in Sources */,

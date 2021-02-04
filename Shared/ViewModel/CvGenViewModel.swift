@@ -57,6 +57,7 @@ class CvGenViewModel: NSObject, ObservableObject {
     func savePerson() {
         do {
             try moc.save()
+            //print(person?.hobby)
         } catch {
             print(error.localizedDescription)
         }
@@ -75,6 +76,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             offsets.map { person!.shoolArray[$0] }.forEach(moc.delete)
         case .skill:
             offsets.map { person!.skillArray[$0] }.forEach(moc.delete)
+        case .hobby:
+            offsets.map { person!.hobbyArray[$0] }.forEach(moc.delete)
         default:
             return
         }
@@ -102,8 +105,13 @@ class CvGenViewModel: NSObject, ObservableObject {
         case .skill:
             let skill = Skill(context: moc)
             skill.name = header
-            skill.score = Int16(content) ?? 0
+            skill.score = Int16(content) ?? 10
             skill.person = person
+            savePerson()
+        case .hobby:
+            let hobby = Hobby(context: moc)
+            hobby.name = header
+            hobby.person = person
             savePerson()
         default:
             savePerson()
@@ -128,7 +136,10 @@ class CvGenViewModel: NSObject, ObservableObject {
         case .skill:
             guard let skill = selectedObject as? Skill else { return }
             skill.name = header
-            skill.score = Int16(content) ?? 0
+            skill.score = Int16(content) ?? 10
+        case .hobby:
+            guard let hobby = selectedObject as? Hobby else { return }
+            hobby.name = header
         default:
            print("default update")
         }
@@ -156,6 +167,12 @@ class CvGenViewModel: NSObject, ObservableObject {
             } else {
                 return ("", "", Date(), Date())
             }
+        case .hobby:
+            if let hobby = selectedObject as? Hobby {
+                return (hobby.name!, hobby.name!, Date(), Date())
+            } else {
+                return ("", "", Date(), Date())
+            }
         default:
             return ("default", "default", Date(), Date())
         }
@@ -169,6 +186,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             return selectedObject != nil ? "Update school" : "Add school"
         case .skill:
             return selectedObject != nil ? "Update skill" : "Add skill"
+        case .hobby:
+            return selectedObject != nil ? "Update hobby" : "Add hobby"
         default:
             return ""
         }
