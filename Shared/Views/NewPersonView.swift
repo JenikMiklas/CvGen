@@ -32,13 +32,12 @@ struct NewPersonView: View {
             }.padding(.bottom, 20)
         }
         .padding(.top, 10)
-        .navigationBarTitle("New User CV", displayMode: .inline)
+        .navigationBarTitle(getTitle() , displayMode: .inline)
         .onAppear {
             if person != nil {
                 cvgVM.person = person
             }
         }
-        
     }
     
    @ViewBuilder private func destination(key: String) -> some View {
@@ -65,6 +64,16 @@ struct NewPersonView: View {
             return ("studentdesk", "education")
         default:
             return ("gamecontroller", "hobbies")
+        }
+    }
+    
+    private func getTitle() -> String {
+        guard let person = person else { return "New User CV" }
+        guard let name = person.name else { return "New User CV" }
+        if name == "" {
+            return "New User CV"
+        } else {
+            return name + " CV"
         }
     }
 }
