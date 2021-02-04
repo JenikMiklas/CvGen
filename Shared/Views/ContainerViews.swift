@@ -49,14 +49,18 @@ struct NewContetView: View {
             Form {
                 Section {
                     TextField("Name", text: $header)
-                    TextEditor(text: $content)
-                        .opacity(content == "Description" ? 0.25 : 1)
-                        .frame(height: 300)
-                    HStack {
-                        DatePicker("from", selection: $from, displayedComponents: .date)
-                        DatePicker("to", selection: $to, displayedComponents: .date)
+                    if cvgVM.section != .hobby {
+                        TextEditor(text: $content)
+                            .opacity(content == "Description" ? 0.25 : 1)
+                            .frame(height: cvgVM.section == .skill ? 0 : 300)
+                        if cvgVM.section != .skill {
+                            HStack {
+                                DatePicker("from", selection: $from, displayedComponents: .date)
+                                DatePicker("to", selection: $to, displayedComponents: .date)
+                            }
+                            .font(.caption)
+                        }
                     }
-                    .font(.caption)
                     Button(action: {
                         if cvgVM.selectedObject != nil {
                             cvgVM.updateContent(header: header, content: content, from: from, to: to)
@@ -76,9 +80,13 @@ struct NewContetView: View {
             .onAppear {
                 let data = cvgVM.loadContent()
                 header = data.0
-                content = data.1
-                from = data.2
-                to = data.3
+                if cvgVM.section != .hobby {
+                    content = data.1
+                    if cvgVM.section != .skill {
+                        from = data.2
+                        to = data.3
+                    }
+                }
             }
             .navigationBarTitle(cvgVM.getViewTitle(), displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
