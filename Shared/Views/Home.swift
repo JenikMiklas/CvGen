@@ -12,19 +12,19 @@ struct Home: View {
     @State private var pdfData = Data()
     @State private var showSheet = false
     
+    @EnvironmentObject var cvgVM: CvGenViewModel
+    
     var body: some View {
-        NavigationView {
-            WebView(pdfData: $pdfData)
-                .navigationBarTitle("CvGen")
-                .toolbar(content: {
-                    Button(action: { showSheet.toggle() }, label: {
-                        Image(systemName: "printer")
-                    })
+        WebView(html: cvgVM.generateHTML(), pdfData: $pdfData)
+            .navigationBarTitle("Export CV")
+            .toolbar(content: {
+                Button(action: { showSheet.toggle() }, label: {
+                    Image(systemName: "printer")
                 })
-                .sheet(isPresented: $showSheet, content: {
-                    ActivityView(pdfData: $pdfData)
-                })
-        }
+            })
+            .sheet(isPresented: $showSheet, content: {
+                ActivityView(pdfData: $pdfData)
+            })
     }
 }
 

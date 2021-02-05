@@ -147,18 +147,18 @@ struct CardView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("face")
+            Image("jenikface")
                 .resizable()
-                .frame(width: 75, height: 75)
+                .frame(width: 70, height: 70)
                 .clipShape(Circle())
                 .aspectRatio(contentMode: .fit)
             VStack(alignment: .trailing) {
                 Text(job)
                     .font(.caption)
                 Text(phone)
-                    .font(.caption)
+                    .font(.caption2)
                 Text(email)
-                    .font(.caption)
+                    .font(.caption2)
             }
             Spacer()
             VStack {

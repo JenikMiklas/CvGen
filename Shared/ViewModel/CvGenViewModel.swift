@@ -73,7 +73,7 @@ class CvGenViewModel: NSObject, ObservableObject {
         case .job:
             offsets.map { person!.jobsArray[$0] }.forEach(moc.delete)
         case .education:
-            offsets.map { person!.shoolArray[$0] }.forEach(moc.delete)
+            offsets.map { person!.schoolArray[$0] }.forEach(moc.delete)
         case .skill:
             offsets.map { person!.skillArray[$0] }.forEach(moc.delete)
         case .hobby:
@@ -204,6 +204,88 @@ class CvGenViewModel: NSObject, ObservableObject {
         default:
             return ""
         }
+    }
+    
+    func generateHTML() -> String {
+        var nodeHtml = ""
+        var html = HTMLString.htmlString
+        html = html.replacingOccurrences(of: "#NAME#", with: person?.name ?? "")
+        html = html.replacingOccurrences(of: "#CARRER#", with: person?.job ?? "")
+        if let street = person?.address?.street { nodeHtml = street }
+        html = html.replacingOccurrences(of: "#ADDRESS#", with: nodeHtml)
+        if let zip = person?.address?.zip { nodeHtml = zip }
+        if let state = person?.address?.state { nodeHtml += ", " + state }
+        html = html.replacingOccurrences(of: "#STATE#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#TEL#", with: person?.phone ?? "")
+        html = html.replacingOccurrences(of: "#E-MAIL#", with: person?.email ?? "")
+        html = html.replacingOccurrences(of: "#WEB#", with: person?.web ?? "")
+        html = html.replacingOccurrences(of: "#SKILL'S#", with: "DOVEDNOSTI")
+        nodeHtml = ""
+        if let skills = person?.skillArray {
+            for skill in skills {
+                nodeHtml += """
+                    <li>
+                    <div class="skill_name">\(skill.name ?? "")</div>
+                    <div class="skill_progress">
+                    <span style="width: \(String(skill.score))%;"></span>
+                    </div>
+                    <div class="skill_per">\(String(skill.score))%</div>
+                    </li>
+                    """
+            }
+        }
+        html = html.replacingOccurrences(of: "#SKILL#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#JOBS#", with: "Pracovní zkušenosti")
+        nodeHtml = ""
+        if let jobs = person?.jobsArray {
+            for job in jobs {
+                let calendar = Calendar.current
+                let compFrom = calendar.dateComponents([.year, .month], from: job.periodFrom ?? Date())
+                let compTo = calendar.dateComponents([.year, .month], from: job.periodTo ?? Date())
+                nodeHtml += """
+                <li>
+                    <div class="date">\(compFrom.year ?? 0) - \(compTo.year ?? 0)</div>
+                    <div class="info">
+                        <p class="semi-bold">
+                        \(job.company ?? "")
+                        </p>
+                        <p>
+                        \(job.position ?? "")
+                        </p>
+                    </div>
+                </li>
+                """
+            }
+        }
+        html = html.replacingOccurrences(of: "#JOB#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#EDU#", with: "Vzdělání")
+        nodeHtml = ""
+        if let schools = person?.schoolArray {
+            for school in schools {
+                let calendar = Calendar.current
+                let compFrom = calendar.dateComponents([.year, .month], from: school.periodFrom ?? Date())
+                let compTo = calendar.dateComponents([.year, .month], from: school.periodTo ?? Date())
+                nodeHtml += """
+                            <li>
+                                <div class="date">\(compFrom.year ?? 0) - \(compTo.year ?? 0)</div>
+                                <div class="info">
+                                     <p class="semi-bold">\(school.school ?? "")</p>
+                                  <p>\(school.course ?? "")</p>
+                                </div>
+                            </li>
+                """
+            }
+        }
+        html = html.replacingOccurrences(of: "#EDUS#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#HOBBY#", with: "Záliby")
+        nodeHtml = ""
+        if let hobbies = person?.hobbyArray {
+            for hobby in hobbies {
+                nodeHtml += "<p>\(hobby.name ?? "")</p>"
+            }
+        }
+        html = html.replacingOccurrences(of: "#HOBBIES#", with: nodeHtml)
+        return html
     }
     
 }

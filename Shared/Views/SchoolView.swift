@@ -15,7 +15,7 @@ struct SchoolView: View {
     
     var body: some View {
         List {
-            ForEach(cvgVM.person?.shoolArray ?? [], id: \.self) { school in
+            ForEach(cvgVM.person?.schoolArray ?? [], id: \.self) { school in
                 //if let job = set as? Jobs {
                 ContetView(header: school.school ?? "", text: school.course ?? "", from: school.periodFrom ?? Date(), to: school.periodTo ?? Date())
                     .onTapGesture {

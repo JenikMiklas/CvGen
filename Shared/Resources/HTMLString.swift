@@ -239,7 +239,7 @@ struct HTMLString {
 </html>
 """
     
-    static var htmlString: String = """
+    static let htmlString: String = """
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -300,15 +300,7 @@ struct HTMLString {
            <p class="bold">#SKILL'S#</p>
          </div>
          <ul>
-           <li>
-             <div class="skill_name">
-                #SKILL#
-             </div>
-             <div class="skill_progress">
-               <span style="width: #SKILL PROGRESS#;"></span>
-             </div>
-             <div class="skill_per">#SKILL PROGRESS#</div>
-           </li>
+            #SKILL#
          </ul>
        </div>
        <div class="resume_item resume_social">
@@ -368,13 +360,7 @@ struct HTMLString {
            <p class="bold">#JOBS#</p>
          </div>
         <ul>
-            <li>
-                <div class="date">#JOBS DATE#</div>
-                <div class="info">
-                     <p class="semi-bold">#COMPANY#</p>
-                  <p>#JOB DESCRIPTION#</p>
-                </div>
-            </li>
+        #JOB#
         </ul>
     </div>
     <div class="resume_item resume_education">
@@ -382,13 +368,7 @@ struct HTMLString {
            <p class="bold">#EDU#</p>
          </div>
       <ul>
-            <li>
-                <div class="date">#EDU DATE#</div>
-                <div class="info">
-                     <p class="semi-bold">#EDU SCHOOL#</p>
-                  <p>#EDU DESCRIPTION#</p>
-                </div>
-            </li>
+        #EDUS#
         </ul>
     </div>
     <div class="resume_item resume_hobby">
@@ -401,12 +381,9 @@ struct HTMLString {
          <li><i class="fas fa-music"></i></li>
          <li><i class="fas fa-film"></i></li>
       </ul>
-       <ul>
-         <div><p>#BOOK#</p><p>#BOOK#</p></div>
-         <div><p>#GAME#</p><p>#GAME#</p></div>
-         <div><p>#MUSIC#</p><p>#MUSIC#</p></div>
-         <div><p>#FILM#</p><p>#FILM#</p></div>
-      </ul>
+       <div>
+        #HOBBIES#
+        </div>
     </div>
     </div>
     </div>

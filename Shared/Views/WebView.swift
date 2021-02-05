@@ -10,6 +10,7 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     
+    let html: String
     @Binding var pdfData: Data
     
     func makeCoordinator() -> Coordinator {
@@ -19,7 +20,9 @@ struct WebView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
         webView.navigationDelegate = context.coordinator
-        webView.loadHTMLString(HTMLString.htmlStringTest, baseURL: HTMLString.urlResources)
+       
+        webView.loadHTMLString(html, baseURL: HTMLString.urlResources)
+        
         return webView
     }
     
@@ -69,6 +72,7 @@ extension WKWebView {
 extension UIPrintPageRenderer {
     func generatePdfData() -> NSMutableData {
         let pdfData = NSMutableData()
+        //DispatchQueue.main.async {
             UIGraphicsBeginPDFContextToData(pdfData, self.paperRect, nil)
             self.prepare(forDrawingPages: NSMakeRange(0, self.numberOfPages))
             let printRect = UIGraphicsGetPDFContextBounds()
@@ -77,6 +81,7 @@ extension UIPrintPageRenderer {
                 self.drawPage(at: pdfPage, in: printRect)
             }
             UIGraphicsEndPDFContext();
+        //}
             return pdfData
         }
 }
