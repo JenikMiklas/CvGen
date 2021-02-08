@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {
+struct ExportView: View {
     
     @State private var pdfData = Data()
     @State private var showSheet = false
@@ -30,6 +30,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ExportView()
     }
 }

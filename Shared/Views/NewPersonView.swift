@@ -27,7 +27,7 @@ struct NewPersonView: View {
             .frame(maxWidth: .infinity)
             HStack(spacing: 50) {
                 NavigationLink(
-                    destination: Home(),
+                    destination: ExportView(),
                     label: {
                         Badge(image: "printer", title: "Print CV")
                     })
