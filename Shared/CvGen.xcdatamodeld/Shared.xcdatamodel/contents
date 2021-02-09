@@ -37,6 +37,7 @@
         <relationship name="hobby" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Hobby" inverseName="person" inverseEntity="Hobby"/>
         <relationship name="school" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Education" inverseName="person" inverseEntity="Education"/>
         <relationship name="skill" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="person" inverseEntity="Skill"/>
+        <relationship name="social" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Social" inverseName="person" inverseEntity="Social"/>
         <relationship name="work" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Jobs" inverseName="person" inverseEntity="Jobs"/>
     </entity>
     <entity name="Skill" representedClassName="Skill" syncable="YES" codeGenerationType="class">
@@ -44,12 +45,18 @@
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="skill" inverseEntity="Person"/>
     </entity>
+    <entity name="Social" representedClassName="Social" syncable="YES" codeGenerationType="class">
+        <attribute name="link" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="social" inverseEntity="Person"/>
+    </entity>
     <elements>
         <element name="Address" positionX="155.1293334960937" positionY="-14.32861328125001" width="122.4381103515625" height="103"/>
         <element name="Education" positionX="546.4434814453125" positionY="-27.055908203125" width="128" height="118"/>
         <element name="Hobby" positionX="294.329345703125" positionY="-18.70077514648438" width="128" height="59"/>
         <element name="Jobs" positionX="884.2628784179688" positionY="95.74160766601562" width="128" height="118"/>
-        <element name="Person" positionX="-63" positionY="-9" width="128" height="224"/>
+        <element name="Person" positionX="-63" positionY="-9" width="128" height="239"/>
         <element name="Skill" positionX="686.6890869140625" positionY="53.17575073242188" width="128" height="73"/>
+        <element name="Social" positionX="144" positionY="90" width="128" height="74"/>
     </elements>
 </model>

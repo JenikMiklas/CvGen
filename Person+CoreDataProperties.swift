@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.swift
 //  CvGen (iOS)
 //
-//  Created by Jan Miklas on 08.02.2021.
+//  Created by Jan Miklas on 09.02.2021.
 //
 //
 
@@ -19,17 +19,18 @@ extension Person {
     @NSManaged public var about: String?
     @NSManaged public var born: Date?
     @NSManaged public var email: String?
+    @NSManaged public var img: String?
     @NSManaged public var job: String?
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
     @NSManaged public var web: String?
-    @NSManaged public var img: String?
     @NSManaged public var address: Address?
     @NSManaged public var hobby: NSSet?
     @NSManaged public var school: NSSet?
     @NSManaged public var skill: NSSet?
     @NSManaged public var work: NSSet?
-    
+    @NSManaged public var social: NSSet?
+
     public var jobsArray: [Jobs] {
         let set = work as? Set<Jobs> ?? []
         return set.sorted {
@@ -57,7 +58,13 @@ extension Person {
             $0.name! < $1.name!
         }
     }
-
+    
+    public var socialArray: [Social] {
+        let set = social as? Set<Social> ?? []
+        return set.sorted {
+            $0.name! < $1.name!
+        }
+    }
 }
 
 // MARK: Generated accessors for hobby
@@ -125,6 +132,23 @@ extension Person {
 
     @objc(removeWork:)
     @NSManaged public func removeFromWork(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for social
+extension Person {
+
+    @objc(addSocialObject:)
+    @NSManaged public func addToSocial(_ value: Social)
+
+    @objc(removeSocialObject:)
+    @NSManaged public func removeFromSocial(_ value: Social)
+
+    @objc(addSocial:)
+    @NSManaged public func addToSocial(_ values: NSSet)
+
+    @objc(removeSocial:)
+    @NSManaged public func removeFromSocial(_ values: NSSet)
 
 }
 
