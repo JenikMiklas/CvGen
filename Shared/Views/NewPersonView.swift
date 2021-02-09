@@ -57,8 +57,8 @@ struct NewPersonView: View {
         case "gamecontroller":
            HobbyView()
         default:
-            Text("Work in progress....")
-            //ImageView()
+            //Text("Work in progress....")
+            ImageView()
         }
     }
     private func getPhotoTitle(index: Int) -> (String, String) {
