@@ -19,6 +19,7 @@ struct ContactFormView: View {
     @State var phone: String = ""
     @State var email: String = ""
     @State var web: String = ""
+    @State var about: String = ""
     
     var body: some View {
         Form {
@@ -60,11 +61,17 @@ struct ContactFormView: View {
                         cvgVM.person?.web = value
                     }
             }
+            Section(header: Text("about")) {
+                TextEditor(text: $about)
+                    .onChange(of: about) { value in
+                        cvgVM.person?.about = value
+                    }
+            }
             Section {
                 HStack {
                     Spacer()
                     Button(action: { cvgVM.savePerson() }, label: {
-                        Text("Save()")
+                        Text("Save")
                     })
                     Spacer()
                 }
@@ -80,6 +87,7 @@ struct ContactFormView: View {
             phone = cvgVM.person?.phone ?? ""
             email = cvgVM.person?.email ?? ""
             web = cvgVM.person?.web ?? ""
+            about = cvgVM.person?.about ?? ""
            
             
             if let person = cvgVM.person {
