@@ -52,7 +52,6 @@ struct NewContetView: View {
     @State private var from = Date()
     @State private var to = Date()
     
-    //private let socialNetworksIcons = ["fab fa-facebook-square", "fab fa-twitter-square", "fab fa-youtube", "fab fa-linkedin"]
     private let socialNetworks = ["Facebook", "Twitter", "YouTube", "Linkedin"]
     
     var body: some View {

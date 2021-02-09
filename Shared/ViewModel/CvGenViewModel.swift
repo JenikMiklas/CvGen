@@ -225,6 +225,21 @@ class CvGenViewModel: NSObject, ObservableObject {
         }
     }
     
+    private func getSocialIcon(social: String) -> String {
+        switch social {
+        case "Facebook":
+            return "fab fa-facebook-square"
+        case "Twitter":
+            return "fab fa-twitter-square"
+        case "YouTube":
+            return "fab fa-youtube"
+        case "Linkedin":
+            return "fab fa-linkedin"
+        default:
+            return ""
+        }
+    }
+    
     func generateHTML() -> String {
         var nodeHtml = ""
         var html = HTMLString.htmlString
@@ -254,6 +269,24 @@ class CvGenViewModel: NSObject, ObservableObject {
             }
         }
         html = html.replacingOccurrences(of: "#SKILL#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#SOCIALS#", with: "Sociální sítě")
+        nodeHtml = ""
+        if let socials = person?.socialArray {
+            for social in socials {
+                nodeHtml += """
+                <li>
+                <div class="icon">
+                <i class="\(getSocialIcon(social: social.name ?? ""))"></i>
+                </div>
+                <div class="data">
+                <p class="semi-bold">\(social.name ?? "")</p>
+                <p>\(social.link ?? "")</p>
+                </div>
+                </li>
+                """
+            }
+        }
+        html = html.replacingOccurrences(of: "#SOCIAL#", with: nodeHtml)
         html = html.replacingOccurrences(of: "#ABOUT#", with:"O MNĚ")
         html = html.replacingOccurrences(of: "#PERSONAL#", with:person?.about ?? "")
         html = html.replacingOccurrences(of: "#JOBS#", with: "Pracovní zkušenosti")
