@@ -2,7 +2,7 @@
 //  Person+CoreDataClass.swift
 //  CvGen (iOS)
 //
-//  Created by Jan Miklas on 02.02.2021.
+//  Created by Jan Miklas on 08.02.2021.
 //
 //
 

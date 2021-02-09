@@ -17,6 +17,7 @@
 		7F5A330A25CB15380035A248 /* SchoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330925CB15370035A248 /* SchoolView.swift */; };
 		7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330C25CB41D70035A248 /* ContainerViews.swift */; };
 		7F5A331025CB53B20035A248 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330F25CB53B20035A248 /* SkillView.swift */; };
+		7F7406BF25D16A1900163C85 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7406BE25D16A1900163C85 /* ImageView.swift */; };
 		7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */; };
 		7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3125C022D6000754C0 /* CvGenApp.swift */; };
 		7F765A4925C022D9000754C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3225C022D6000754C0 /* ContentView.swift */; };
@@ -27,8 +28,8 @@
 		7F765A9125C049E1000754C0 /* HTMLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A9025C049E1000754C0 /* HTMLString.swift */; };
 		7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7780B825C8436E00D5CDEF /* CvGenViewModel.swift */; };
 		7F7780C225C8949E00D5CDEF /* NewPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7780C125C8949D00D5CDEF /* NewPersonView.swift */; };
-		7FA831D525C9EC3F00E1A3B4 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA831D125C9EC3F00E1A3B4 /* Person+CoreDataClass.swift */; };
-		7FA831D625C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA831D225C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift */; };
+		7F7C86E525D1AF8800C2E663 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C86E325D1AF8800C2E663 /* Person+CoreDataClass.swift */; };
+		7F7C86E625D1AF8800C2E663 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7C86E425D1AF8800C2E663 /* Person+CoreDataProperties.swift */; };
 		7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0008925C2151E004A89BB /* TestPersonView.swift */; };
 		7FE54E9425CC26B800674695 /* HobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE54E9325CC26B800674695 /* HobbyView.swift */; };
 		7FE54E9825CC3FA700674695 /* jenikface.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FE54E9725CC3FA700674695 /* jenikface.jpg */; };
@@ -45,6 +46,7 @@
 		7F5A330925CB15370035A248 /* SchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolView.swift; sourceTree = "<group>"; };
 		7F5A330C25CB41D70035A248 /* ContainerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViews.swift; sourceTree = "<group>"; };
 		7F5A330F25CB53B20035A248 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
+		7F7406BE25D16A1900163C85 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7F765A3025C022D6000754C0 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		7F765A3125C022D6000754C0 /* CvGenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvGenApp.swift; sourceTree = "<group>"; };
 		7F765A3225C022D6000754C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,8 +59,8 @@
 		7F765A9025C049E1000754C0 /* HTMLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLString.swift; sourceTree = "<group>"; };
 		7F7780B825C8436E00D5CDEF /* CvGenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvGenViewModel.swift; sourceTree = "<group>"; };
 		7F7780C125C8949D00D5CDEF /* NewPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonView.swift; sourceTree = "<group>"; };
-		7FA831D125C9EC3F00E1A3B4 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7FA831D225C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F7C86E325D1AF8800C2E663 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F7C86E425D1AF8800C2E663 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7FB0008925C2151E004A89BB /* TestPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPersonView.swift; sourceTree = "<group>"; };
 		7FE54E9325CC26B800674695 /* HobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyView.swift; sourceTree = "<group>"; };
 		7FE54E9725CC3FA700674695 /* jenikface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jenikface.jpg; sourceTree = "<group>"; };
@@ -78,8 +80,8 @@
 		7F765A2925C022D6000754C0 = {
 			isa = PBXGroup;
 			children = (
-				7FA831D125C9EC3F00E1A3B4 /* Person+CoreDataClass.swift */,
-				7FA831D225C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift */,
+				7F7C86E325D1AF8800C2E663 /* Person+CoreDataClass.swift */,
+				7F7C86E425D1AF8800C2E663 /* Person+CoreDataProperties.swift */,
 				7F765A2E25C022D6000754C0 /* Shared */,
 				7F765A3B25C022D9000754C0 /* iOS */,
 				7F765A3A25C022D9000754C0 /* Products */,
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7F765A6A25C02CFB000754C0 /* ExportView.swift */,
+				7F7406BE25D16A1900163C85 /* ImageView.swift */,
 				7F0C27C525C04BE7001E8D9E /* WebView.swift */,
 				7F0C27DC25C081A0001E8D9E /* ActivityView.swift */,
 				7F0C27E625C0986E001E8D9E /* PDFViewer.swift */,
@@ -238,7 +241,6 @@
 			files = (
 				7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */,
 				7F765A4B25C022D9000754C0 /* Persistence.swift in Sources */,
-				7FA831D525C9EC3F00E1A3B4 /* Person+CoreDataClass.swift in Sources */,
 				7F765A6B25C02CFB000754C0 /* ExportView.swift in Sources */,
 				7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */,
 				7FE54E9425CC26B800674695 /* HobbyView.swift in Sources */,
@@ -248,11 +250,13 @@
 				7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */,
 				7F765A4925C022D9000754C0 /* ContentView.swift in Sources */,
 				7F7780C225C8949E00D5CDEF /* NewPersonView.swift in Sources */,
+				7F7406BF25D16A1900163C85 /* ImageView.swift in Sources */,
+				7F7C86E525D1AF8800C2E663 /* Person+CoreDataClass.swift in Sources */,
 				7F42889225C98A0B000CC391 /* WorkFormView.swift in Sources */,
+				7F7C86E625D1AF8800C2E663 /* Person+CoreDataProperties.swift in Sources */,
 				7FB0008A25C2151E004A89BB /* TestPersonView.swift in Sources */,
 				7F0C27DD25C081A0001E8D9E /* ActivityView.swift in Sources */,
 				7F765A9125C049E1000754C0 /* HTMLString.swift in Sources */,
-				7FA831D625C9EC3F00E1A3B4 /* Person+CoreDataProperties.swift in Sources */,
 				7F42888F25C971A5000CC391 /* ContactFormView.swift in Sources */,
 				7F0C27C625C04BE7001E8D9E /* WebView.swift in Sources */,
 				7F0C27E725C0986E001E8D9E /* PDFViewer.swift in Sources */,

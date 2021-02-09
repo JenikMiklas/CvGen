@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.swift
 //  CvGen (iOS)
 //
-//  Created by Jan Miklas on 02.02.2021.
+//  Created by Jan Miklas on 08.02.2021.
 //
 //
 
@@ -23,6 +23,7 @@ extension Person {
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
     @NSManaged public var web: String?
+    @NSManaged public var img: String?
     @NSManaged public var address: Address?
     @NSManaged public var hobby: NSSet?
     @NSManaged public var school: NSSet?
@@ -56,6 +57,7 @@ extension Person {
             $0.name! < $1.name!
         }
     }
+
 }
 
 // MARK: Generated accessors for hobby

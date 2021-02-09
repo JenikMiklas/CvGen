@@ -28,6 +28,7 @@
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="born" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="img" optional="YES" attributeType="String"/>
         <attribute name="job" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="phone" optional="YES" attributeType="String"/>
@@ -48,7 +49,7 @@
         <element name="Education" positionX="546.4434814453125" positionY="-27.055908203125" width="128" height="118"/>
         <element name="Hobby" positionX="294.329345703125" positionY="-18.70077514648438" width="128" height="59"/>
         <element name="Jobs" positionX="884.2628784179688" positionY="95.74160766601562" width="128" height="118"/>
-        <element name="Person" positionX="-63" positionY="-9" width="128" height="223"/>
+        <element name="Person" positionX="-63" positionY="-9" width="128" height="224"/>
         <element name="Skill" positionX="686.6890869140625" positionY="53.17575073242188" width="128" height="73"/>
     </elements>
 </model>

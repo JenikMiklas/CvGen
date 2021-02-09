@@ -56,6 +56,7 @@ struct NewPersonView: View {
            HobbyView()
         default:
             Text("Work in progress....")
+            //ImageView()
         }
     }
     private func getPhotoTitle(index: Int) -> (String, String) {
