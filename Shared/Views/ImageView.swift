@@ -36,14 +36,15 @@ struct ImageView: View {
                 .frame(width: 300, height: 300)
                 .background(Color.gray)
                 .cornerRadius(10)
+                .foregroundColor(.primary)
                 .overlay(
                     Text("Tap to select picture").offset(y: 70)
                 )
             } else {
                 //GeometryReader { geo in
                     Image(uiImage: profileImg!)
-                        //.resizable()
-                        //.frame(width: geo.size.width, height: geo.size.height)
+                        .resizable()
+                        .scaledToFill()
                         .scaleEffect(pinchOffset * pinchPosition)
                         .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
                         .overlay(
