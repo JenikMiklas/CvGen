@@ -19,6 +19,7 @@
 		7F5A331025CB53B20035A248 /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5A330F25CB53B20035A248 /* SkillView.swift */; };
 		7F6CFEF625D2AB83005B56CF /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CFEF425D2AB83005B56CF /* Person+CoreDataClass.swift */; };
 		7F6CFEF725D2AB83005B56CF /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CFEF525D2AB83005B56CF /* Person+CoreDataProperties.swift */; };
+		7F6CFEFA25D2ACD0005B56CF /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CFEF925D2ACD0005B56CF /* SocialView.swift */; };
 		7F7406BF25D16A1900163C85 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7406BE25D16A1900163C85 /* ImageView.swift */; };
 		7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */; };
 		7F765A4725C022D9000754C0 /* CvGenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A3125C022D6000754C0 /* CvGenApp.swift */; };
@@ -48,6 +49,7 @@
 		7F5A330F25CB53B20035A248 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		7F6CFEF425D2AB83005B56CF /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7F6CFEF525D2AB83005B56CF /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F6CFEF925D2ACD0005B56CF /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		7F7406BE25D16A1900163C85 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7F765A3025C022D6000754C0 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		7F765A3125C022D6000754C0 /* CvGenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvGenApp.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				7F42889125C98A0B000CC391 /* WorkFormView.swift */,
 				7F5A330925CB15370035A248 /* SchoolView.swift */,
 				7F5A330F25CB53B20035A248 /* SkillView.swift */,
+				7F6CFEF925D2ACD0005B56CF /* SocialView.swift */,
 				7FE54E9325CC26B800674695 /* HobbyView.swift */,
 				7F5A330C25CB41D70035A248 /* ContainerViews.swift */,
 			);
@@ -242,6 +245,7 @@
 				7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */,
 				7F765A4B25C022D9000754C0 /* Persistence.swift in Sources */,
 				7F765A6B25C02CFB000754C0 /* ExportView.swift in Sources */,
+				7F6CFEFA25D2ACD0005B56CF /* SocialView.swift in Sources */,
 				7F5A330D25CB41D70035A248 /* ContainerViews.swift in Sources */,
 				7FE54E9425CC26B800674695 /* HobbyView.swift in Sources */,
 				7F7780B925C8436E00D5CDEF /* CvGenViewModel.swift in Sources */,

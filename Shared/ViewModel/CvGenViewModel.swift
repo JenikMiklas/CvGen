@@ -14,6 +14,7 @@ enum Sections {
     case hobby
     case menu
     case skill
+    case social
 }
 
 class CvGenViewModel: NSObject, ObservableObject {
@@ -112,6 +113,12 @@ class CvGenViewModel: NSObject, ObservableObject {
             let hobby = Hobby(context: moc)
             hobby.name = header
             hobby.person = person
+            savePerson()
+        case .social:
+            let social = Social(context: moc)
+            social.name = header
+            social.link = content
+            social.person = person
             savePerson()
         default:
             savePerson()

@@ -1,13 +1,13 @@
 //
-//  HobbyView.swift
+//  SocialView.swift
 //  CvGen (iOS)
 //
-//  Created by Jan Miklas on 04.02.2021.
+//  Created by Jan Miklas on 09.02.2021.
 //
 
 import SwiftUI
 
-struct HobbyView: View {
+struct SocialView: View {
     
     @EnvironmentObject var cvgVM: CvGenViewModel
     
@@ -15,15 +15,15 @@ struct HobbyView: View {
     
     var body: some View {
         List {
-            ForEach(cvgVM.person?.hobbyArray ?? [], id: \.self) { hobby in
-                ContetView(header: hobby.name ?? "", text: nil, from: nil, to: nil)
+            ForEach(cvgVM.person?.socialArray ?? [], id: \.self) { social in
+                ContetView(header: social.name ?? "", text: social.link ?? "", from: nil, to: nil)
                     .onTapGesture {
-                        cvgVM.selectedObject = hobby
+                        cvgVM.selectedObject = social
                         showSheet.toggle()
                     }
-            }.onDelete(perform: deleteHobby)
+            }.onDelete(perform: deleteSocial)
         }
-        .navigationBarTitle("Hobbies")
+        .navigationBarTitle("Social")
         .navigationBarItems(trailing: Button(action: { showSheet.toggle() }, label: {
             Text("Add")
         }))
@@ -32,20 +32,20 @@ struct HobbyView: View {
             
         })
         .onAppear {
-            cvgVM.section = .hobby
-            //print(cvgVM.person?.hobby)
+            cvgVM.section = .social
+            //print(cvgVM.person?.work)
         }
     }
     
-    private func deleteHobby(offsets: IndexSet) {
+    private func deleteSocial(offsets: IndexSet) {
         withAnimation {
             cvgVM.deleteContect(offsets: offsets)
         }
     }
 }
 
-struct HobbyView_Previews: PreviewProvider {
+struct SocialView_Previews: PreviewProvider {
     static var previews: some View {
-        HobbyView()
+        SocialView()
     }
 }

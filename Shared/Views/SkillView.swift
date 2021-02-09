@@ -21,7 +21,7 @@ struct SkillView: View {
                         cvgVM.selectedObject = skill
                         showSheet.toggle()
                     }
-            }.onDelete(perform: deleteSchool)
+            }.onDelete(perform: deleteSkill)
         }
         .navigationBarTitle("Skills")
         .navigationBarItems(trailing: Button(action: { showSheet.toggle() }, label: {
@@ -37,7 +37,7 @@ struct SkillView: View {
         }
     }
     
-    private func deleteSchool(offsets: IndexSet) {
+    private func deleteSkill(offsets: IndexSet) {
         withAnimation {
             cvgVM.deleteContect(offsets: offsets)
         }
