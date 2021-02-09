@@ -235,6 +235,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             }
         }
         html = html.replacingOccurrences(of: "#SKILL#", with: nodeHtml)
+        html = html.replacingOccurrences(of: "#ABOUT#", with:"O MNĚ")
+        html = html.replacingOccurrences(of: "#PERSONAL#", with:person?.about ?? "")
         html = html.replacingOccurrences(of: "#JOBS#", with: "Pracovní zkušenosti")
         nodeHtml = ""
         if let jobs = person?.jobsArray {

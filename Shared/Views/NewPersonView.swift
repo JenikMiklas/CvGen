@@ -15,7 +15,7 @@ struct NewPersonView: View {
     var body: some View {
         
         ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: false) {
-            ForEach(1...6, id: \.self) { index in
+            ForEach(1...7, id: \.self) { index in
                 let tup = getPhotoTitle(index: index)
                 NavigationLink(
                     destination: destination(key: tup.0),
@@ -52,6 +52,8 @@ struct NewPersonView: View {
             SchoolView()
         case "wrench.and.screwdriver":
            SkillView()
+        case "person.3":
+            Text("Work in progress....")
         case "gamecontroller":
            HobbyView()
         default:
@@ -68,8 +70,10 @@ struct NewPersonView: View {
         case 3:
             return ("wrench.and.screwdriver", "skill")
         case 4:
-            return ("shippingbox", "working experiences")
+            return ("person.3", "social")
         case 5:
+            return ("shippingbox", "working experiences")
+        case 6:
             return ("studentdesk", "education")
         default:
             return ("gamecontroller", "hobbies")
