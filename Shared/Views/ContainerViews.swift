@@ -23,7 +23,7 @@ struct ContetView: View {
             if cvgVM.section != .hobby {
                 Divider()
                 Text(text!)
-                if cvgVM.section != .skill {
+                if cvgVM.section == .job || cvgVM.section == .education {
                     Divider()
                     HStack {
                         Text(DateFormatter.localizedString(from: from!, dateStyle: .short, timeStyle: .none))
@@ -46,21 +46,37 @@ struct NewContetView: View {
     
     @Binding var showSheet: Bool
     
+    @State private var pickerIndex = 0
     @State private var header = ""
     @State private var content = "Description"
     @State private var from = Date()
     @State private var to = Date()
     
+    //private let socialNetworksIcons = ["fab fa-facebook-square", "fab fa-twitter-square", "fab fa-youtube", "fab fa-linkedin"]
+    private let socialNetworks = ["Facebook", "Twitter", "YouTube", "Linkedin"]
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $header)
+                    if cvgVM.section == .social {
+                        Picker(selection: $pickerIndex, label: Text(header == "" ? socialNetworks[pickerIndex] : header)) {
+                            ForEach (0..<socialNetworks.count, id: \.self) { index in
+                                Text(socialNetworks[index]).tag(index)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                        .onChange(of: pickerIndex, perform: { value in
+                            header = socialNetworks[value]
+                        })
+                    } else {
+                        TextField("Name", text: $header)
+                    }
                     if cvgVM.section != .hobby {
                         TextEditor(text: $content)
                             .opacity(content == "Description" ? 0.25 : 1)
-                            .frame(height: cvgVM.section == .skill ? nil : 300)
-                        if cvgVM.section != .skill {
+                            .frame(height: cvgVM.section == .skill || cvgVM.section == .social ? nil : 300)
+                        if cvgVM.section == .job || cvgVM.section == .education {
                             HStack {
                                 DatePicker("from", selection: $from, displayedComponents: .date)
                                 DatePicker("to", selection: $to, displayedComponents: .date)

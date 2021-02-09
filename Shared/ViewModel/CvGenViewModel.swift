@@ -147,6 +147,10 @@ class CvGenViewModel: NSObject, ObservableObject {
         case .hobby:
             guard let hobby = selectedObject as? Hobby else { return }
             hobby.name = header
+        case .social:
+            guard let social = selectedObject as? Social else { return }
+            social.name = header
+            social.link = content
         default:
            print("default update")
         }
@@ -180,6 +184,12 @@ class CvGenViewModel: NSObject, ObservableObject {
             } else {
                 return ("", "", Date(), Date())
             }
+        case .social:
+            if let social = selectedObject as? Social {
+                return (social.name!, social.link!, Date(), Date())
+            } else {
+                return ("", "", Date(), Date())
+            }
         default:
             return ("default", "default", Date(), Date())
         }
@@ -195,6 +205,8 @@ class CvGenViewModel: NSObject, ObservableObject {
             return selectedObject != nil ? "Update skill" : "Add skill"
         case .hobby:
             return selectedObject != nil ? "Update hobby" : "Add hobby"
+        case .social:
+            return selectedObject != nil ? "Update social" : "Add social"
         default:
             return ""
         }

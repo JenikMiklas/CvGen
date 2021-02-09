@@ -53,7 +53,7 @@ struct NewPersonView: View {
         case "wrench.and.screwdriver":
            SkillView()
         case "person.3":
-            Text("Work in progress....")
+            SocialView()
         case "gamecontroller":
            HobbyView()
         default:
