@@ -16,111 +16,70 @@ struct ImageView: View {
     @State private var profileImg: UIImage?
     @State private var renderedImg: UIImage?
     
-    @GestureState private var dragOffset: CGSize = .zero
-    @State private var position: CGSize = .zero
-    
-    @GestureState private var pinchOffset: CGFloat = 1
-    @State private var pinchPosition: CGFloat = 1
-    
     var body: some View {
-        VStack {
-            /*if renderedImg != nil {
-                Image(uiImage: renderedImg)
-            } else*/ if profileImg == nil {
-                Button(action: { showLibrary.toggle() }, label: {
-                    Image(systemName: "camera")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100)
-                })
-                .frame(width: 300, height: 300)
-                .background(Color.gray)
-                .cornerRadius(10)
-                .foregroundColor(.primary)
-                .overlay(
-                    Text("Tap to select picture").offset(y: 70)
-                )
+        ZStack {
+            if profileImg == nil && renderedImg == nil {
+                NoImgView(showLibrary: $showLibrary)
+            } else if (profileImg != nil && renderedImg == nil) {
+                SelectImgView(profileImg: $profileImg)
             } else {
-                //GeometryReader { geo in
-                    Image(uiImage: profileImg!)
-                        .resizable()
-                        .scaledToFill()
-                        .scaleEffect(pinchOffset * pinchPosition)
-                        .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
-                        .overlay(
-                            ZStack {
-                                Color.black.opacity(0.5)
-                                    .frame(width: 300, height: (UIScreen.main.bounds.height-300))
-                                    .offset(y: (UIScreen.main.bounds.height-300)/2+150)
-                                Color.black.opacity(0.5)
-                                    .frame(width: 300, height: (UIScreen.main.bounds.height-300))
-                                    .offset(y: -(UIScreen.main.bounds.height-300)/2-150)
-                                Color.black.opacity(0.5)
-                                    .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
-                                    .offset(x: -(UIScreen.main.bounds.width-300)/2-150)
-                                Color.black.opacity(0.5)
-                                    .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
-                                    .offset(x: (UIScreen.main.bounds.width-300)/2+150)
-                            })
-                        .gesture(DragGesture()
-                            
-                            .updating($dragOffset) { value, state, transaction in
-                                state = value.translation
-                            }
-                            .onEnded() {
-                                position.width += $0.translation.width
-                                position.height += $0.translation.height
-                                //dragOffset = .zero
-                        })
-                        .gesture(MagnificationGesture()
-                                    .updating($pinchOffset) { value, state, transaction in
-                                        state = value
-                                    }
-                                    .onEnded() {
-                                       pinchPosition *= $0
-                                    })
-                //}
-                
+                SavedImgView(showLibrary: $showLibrary, renderedImg: $renderedImg)
             }
-            
         }
         .navigationBarTitle("Profile image", displayMode: .inline)
         .sheet(isPresented: $showLibrary) {
             ImagePicker(profileImg: $profileImg, showLibrary: $showLibrary)
         }
-        .navigationBarItems(trailing: Button(action: {
+        .navigationBarItems(leading: Button(action: {
+            profileImg = nil
+        }, label: {
+            Text(profileImg != nil ? "Cancel" : "")
+        }), trailing: Button(action: {
             renderedImg = takeScreenshot(origin: CGPoint(x: 0, y: (UIScreen.main.bounds.height-300)/2+150), size: CGSize(width: 300, height: 300))
+            profileImg = nil
+            //print(cvgVM.getDocumentsDirectory())
             saveImag()
         }, label: {
-            Text("Save")
+            Text( profileImg != nil ? "Save" : "")
         }))
+        .onAppear {
+            if renderedImg == nil {
+                if cvgVM.person?.img != nil {
+                    renderedImg = loadImage()
+                }
+            }
+        }
+        
     }
     
     private func loadImage() -> UIImage {
         if let nameID = cvgVM.person?.img {
-            let filename = getDocumentsDirectory()
-            print(filename)
-            do {
-                var str = try String(contentsOf: filename)
+            var filename = cvgVM.getDocumentsDirectory().relativePath
+            filename += "/"+nameID
+            //print(filename)
+            //let path = Bundle.main.bundlePath.appending("/").appending(nameID)
+            //print(path)
+            return UIImage(contentsOfFile: filename) ?? UIImage()
+            /*do {
+                var str = try String(contentsOf: filename, encoding: .utf8)
                 str += nameID
                 return UIImage(contentsOfFile: str)!
             } catch {
                 print(error.localizedDescription)
-            }
+            }*/
         }
         return UIImage()
     }
     
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
     private func saveImag() {
         if let image = renderedImg {
-            if let data = image.pngData() {
-                let nameID = UUID().uuidString+".png"
-                let filename = getDocumentsDirectory().appendingPathComponent(nameID)
+            if let data = image.jpegData(compressionQuality: 0.6) {
+                var nameID: String
+                if let imgName = cvgVM.person?.img { nameID = imgName }
+                else { nameID = UUID().uuidString+".jpg" }
+                let filename = cvgVM.getDocumentsDirectory().appendingPathComponent(nameID)
+                //let path = Bundle.main.resourceURL?.appendingPathComponent(nameID)
+                //print(path)
                 do {
                     try data.write(to: filename)
                     cvgVM.person?.img = nameID
@@ -130,6 +89,11 @@ struct ImageView: View {
                 }
             }
         }
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 
@@ -141,29 +105,98 @@ struct ImageView_Previews: PreviewProvider {
     }
 }
 
-extension UIView {
-var renderedImage: UIImage {
-// rect of capure
-        let rect = self.bounds
-// create the context of bitmap
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-let context: CGContext = UIGraphicsGetCurrentContext()!
-self.layer.render(in: context)
-// get a image from current context bitmap
-        let capturedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-UIGraphicsEndImageContext()
-return capturedImage
+struct NoImgView: View {
+    
+    @Binding var showLibrary: Bool
+    
+    var body: some View {
+        Button(action: { showLibrary.toggle() }, label: {
+            Image(systemName: "camera")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+        })
+        .frame(width: 300, height: 300)
+        .background(Color.gray)
+        .cornerRadius(10)
+        .foregroundColor(.primary)
+        .overlay(
+            Text("Tap to select picture").offset(y: 190)
+        )
     }
 }
 
-extension View {
-func takeScreenshot(origin: CGPoint, size: CGSize) -> UIImage {
-let window = UIWindow(frame: CGRect(origin: origin, size: size))
-let hosting = UIHostingController(rootView: self)
-        hosting.view.frame = window.frame
-        window.addSubview(hosting.view)
-        window.makeKeyAndVisible()
-return hosting.view.renderedImage
+struct SavedImgView: View {
+    
+    @Binding var showLibrary: Bool
+    @Binding var renderedImg: UIImage?
+    
+    var body: some View {
+        Button(action: {
+            showLibrary.toggle()
+            renderedImg = nil
+        }, label: {
+            Image(uiImage: renderedImg ?? UIImage())
+                .frame(width: 300, height: 300)
+        })
+        .frame(width: 300, height: 300)
+        .background(Color.gray)
+        .cornerRadius(10)
+        .foregroundColor(.primary)
+        .overlay(
+            Text("Tap to select picture").offset(y: 190)
+        )
+    }
+}
+
+struct SelectImgView: View {
+    
+    @Binding var profileImg: UIImage?
+    
+    @GestureState private var dragOffset: CGSize = .zero
+    @State private var position: CGSize = .zero
+    
+    @GestureState private var pinchOffset: CGFloat = 1
+    @State private var pinchPosition: CGFloat = 1
+    
+    var body: some View {
+        Image(uiImage: profileImg ?? UIImage())
+            .resizable()
+            .scaledToFill()
+            .scaleEffect(pinchOffset * pinchPosition)
+            .offset(x: dragOffset.width + position.width, y: dragOffset.height + position.height)
+            .overlay(
+                ZStack {
+                    Color.black.opacity(0.5)
+                        .frame(width: 300, height: (UIScreen.main.bounds.height-300))
+                        .offset(y: (UIScreen.main.bounds.height-300)/2+150)
+                    Color.black.opacity(0.5)
+                        .frame(width: 300, height: (UIScreen.main.bounds.height-300))
+                        .offset(y: -(UIScreen.main.bounds.height-300)/2-150)
+                    Color.black.opacity(0.5)
+                        .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
+                        .offset(x: -(UIScreen.main.bounds.width-300)/2-150)
+                    Color.black.opacity(0.5)
+                        .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
+                        .offset(x: (UIScreen.main.bounds.width-300)/2+150)
+                })
+            .gesture(DragGesture()
+                
+                .updating($dragOffset) { value, state, transaction in
+                    state = value.translation
+                }
+                .onEnded() {
+                    position.width += $0.translation.width
+                    position.height += $0.translation.height
+                    //dragOffset = .zero
+            })
+            .gesture(MagnificationGesture()
+                        .updating($pinchOffset) { value, state, transaction in
+                            state = value
+                        }
+                        .onEnded() {
+                           pinchPosition *= $0
+                        })
     }
 }
 

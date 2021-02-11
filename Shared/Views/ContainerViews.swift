@@ -159,10 +159,11 @@ struct CardView: View {
     let job: String
     let phone: String
     let email: String
+    let image: String
     
     var body: some View {
         HStack(alignment: .center) {
-            Image("jenikface")
+            Image(uiImage: UIImage(contentsOfFile: image) ?? UIImage())
                 .resizable()
                 .frame(width: 70, height: 70)
                 .clipShape(Circle())
@@ -185,5 +186,33 @@ struct CardView: View {
         .padding(5)
         //.background(Color.gray)
         //.cornerRadius(10)
+    }
+}
+
+//MARK: Extensions
+
+extension UIView {
+    var renderedImage: UIImage {
+        // rect of capure
+                let rect = self.bounds
+        // create the context of bitmap
+                UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        let context: CGContext = UIGraphicsGetCurrentContext()!
+        self.layer.render(in: context)
+        // get a image from current context bitmap
+                let capturedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return capturedImage
+    }
+}
+
+extension View {
+    func takeScreenshot(origin: CGPoint, size: CGSize) -> UIImage {
+        let window = UIWindow(frame: CGRect(origin: origin, size: size))
+        let hosting = UIHostingController(rootView: self)
+                hosting.view.frame = window.frame
+                window.addSubview(hosting.view)
+                window.makeKeyAndVisible()
+        return hosting.view.renderedImage
     }
 }

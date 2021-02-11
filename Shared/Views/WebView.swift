@@ -21,7 +21,7 @@ struct WebView: UIViewRepresentable {
         let webView = WKWebView(frame: .zero)
         webView.navigationDelegate = context.coordinator
        
-        webView.loadHTMLString(html, baseURL: HTMLString.urlResources)
+        webView.loadHTMLString(html, baseURL: URL(string: "file://"))
         
         return webView
     }

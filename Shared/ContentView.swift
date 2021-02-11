@@ -26,7 +26,7 @@ struct ContentView: View {
                     NavigationLink(
                         destination: NewPersonView(person: person),
                         label: {
-                            CardView(name: person.name ?? "", job: person.job ?? "", phone: person.phone ?? "", email: person.email ?? "")
+                            CardView(name: person.name ?? "", job: person.job ?? "", phone: person.phone ?? "", email: person.email ?? "", image: getImg(img: person.img ?? ""))
                         })
                 }
                 .onDelete(perform: deletePersons)
@@ -38,6 +38,12 @@ struct ContentView: View {
                 })
             }
         }
+    }
+    
+    private func getImg(img: String) -> String {
+        var path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].relativePath
+        path += "/"+img
+        return path
     }
     
     //MARK: Testting adding and deleting

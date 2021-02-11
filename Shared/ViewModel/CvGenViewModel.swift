@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 enum Sections {
     case education
@@ -239,10 +240,12 @@ class CvGenViewModel: NSObject, ObservableObject {
             return ""
         }
     }
-    
+    ///var/mobile/Containers/Data/Application/948C2544-378F-4E28-AC36-05420520CB8F/Documents/1E808087-7F27-4D13-85C7-4823C80F6F19.jpeg
     func generateHTML() -> String {
         var nodeHtml = ""
         var html = HTMLString.htmlString
+        print((getDocumentsDirectory().relativePath) + "/" + (person?.img ?? ""))
+        html = html.replacingOccurrences(of: "#IMG#", with: (getDocumentsDirectory().relativePath) + "/" + (person?.img ?? ""))
         html = html.replacingOccurrences(of: "#NAME#", with: person?.name ?? "")
         html = html.replacingOccurrences(of: "#CARRER#", with: person?.job ?? "")
         if let street = person?.address?.street { nodeHtml = street }
@@ -340,6 +343,11 @@ class CvGenViewModel: NSObject, ObservableObject {
         }
         html = html.replacingOccurrences(of: "#HOBBIES#", with: nodeHtml)
         return html
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
     
 }
