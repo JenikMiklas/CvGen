@@ -11,17 +11,26 @@ import WebKit
 
 struct PDFViewer: View {
     
-    @Binding var pdfData: Data
+    let pdfData: Data
+    @State private var showSheet = false
     
     var body: some View {
         ShowPDFView(data: pdfData)
             .navigationBarTitle("Print", displayMode: .inline)
+            .toolbar(content: {
+                Button(action: { showSheet.toggle() }, label: {
+                    Image(systemName: "printer")
+                })
+            })
+            .sheet(isPresented: $showSheet, content: {
+                ActivityView(pdfData: pdfData)
+            })
     }
 }
 
 struct PDFViewer_Previews: PreviewProvider {
     static var previews: some View {
-        PDFViewer(pdfData: .constant(Data()))
+        PDFViewer(pdfData: Data())
     }
 }
 

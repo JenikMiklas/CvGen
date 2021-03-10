@@ -10,7 +10,7 @@ import PDFKit
 
 struct ActivityView: UIViewControllerRepresentable {
     
-    @Binding var pdfData: Data
+    let pdfData: Data
     
     func makeUIViewController(context: Context) -> UIActivityViewController {
         let items: [Any] = [pdfData]

@@ -27,7 +27,8 @@ struct NewPersonView: View {
             .frame(maxWidth: .infinity)
             HStack(spacing: 50) {
                 NavigationLink(
-                    destination: ExportView(),
+                    //MARK: GO TO PDFView
+                    destination: PDFViewer(pdfData: PDFDataCreator(person: person ?? Person()).createPDF()),
                     label: {
                         Badge(image: "printer", title: "Print CV")
                     })
@@ -40,6 +41,11 @@ struct NewPersonView: View {
                 cvgVM.person = person
             }
         }
+    }
+    
+    func getImgPath() -> String {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0].relativePath + "/" + (person?.img ?? "")
     }
     
    @ViewBuilder private func destination(key: String) -> some View {
