@@ -35,7 +35,7 @@ struct ImageView: View {
         }, label: {
             Text(profileImg != nil ? "Cancel" : "")
         }), trailing: Button(action: {
-            renderedImg = takeScreenshot(origin: CGPoint(x: 0, y: (UIScreen.main.bounds.height-300)/2+150), size: CGSize(width: 300, height: 300))
+            renderedImg = takeScreenshot(origin: CGPoint(x: 0, y: (UIScreen.main.bounds.height-200)/2+100), size: CGSize(width: 200, height: 200))
             profileImg = nil
             //print(cvgVM.getDocumentsDirectory())
             saveImag()
@@ -117,7 +117,7 @@ struct NoImgView: View {
                 .scaledToFit()
                 .frame(width: 100)
         })
-        .frame(width: 300, height: 300)
+        .frame(width: 200, height: 200)
         .background(Color.gray)
         .cornerRadius(10)
         .foregroundColor(.primary)
@@ -138,9 +138,9 @@ struct SavedImgView: View {
             renderedImg = nil
         }, label: {
             Image(uiImage: renderedImg ?? UIImage())
-                .frame(width: 300, height: 300)
+                .frame(width: 200, height: 200)
         })
-        .frame(width: 300, height: 300)
+        .frame(width: 200, height: 200)
         .background(Color.gray)
         .cornerRadius(10)
         .foregroundColor(.primary)
@@ -169,17 +169,17 @@ struct SelectImgView: View {
             .overlay(
                 ZStack {
                     Color.black.opacity(0.5)
-                        .frame(width: 300, height: (UIScreen.main.bounds.height-300))
-                        .offset(y: (UIScreen.main.bounds.height-300)/2+150)
+                        .frame(width: 200, height: (UIScreen.main.bounds.height-200))
+                        .offset(y: (UIScreen.main.bounds.height-200)/2+100)
                     Color.black.opacity(0.5)
-                        .frame(width: 300, height: (UIScreen.main.bounds.height-300))
-                        .offset(y: -(UIScreen.main.bounds.height-300)/2-150)
+                        .frame(width: 200, height: (UIScreen.main.bounds.height-200))
+                        .offset(y: -(UIScreen.main.bounds.height-200)/2-100)
                     Color.black.opacity(0.5)
-                        .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
-                        .offset(x: -(UIScreen.main.bounds.width-300)/2-150)
+                        .frame(width: (UIScreen.main.bounds.width-200), height: UIScreen.main.bounds.height)
+                        .offset(x: -(UIScreen.main.bounds.width-200)/2-100)
                     Color.black.opacity(0.5)
-                        .frame(width: (UIScreen.main.bounds.width-300), height: UIScreen.main.bounds.height)
-                        .offset(x: (UIScreen.main.bounds.width-300)/2+150)
+                        .frame(width: (UIScreen.main.bounds.width-200), height: UIScreen.main.bounds.height)
+                        .offset(x: (UIScreen.main.bounds.width-200)/2+100)
                 })
             .gesture(DragGesture()
                 

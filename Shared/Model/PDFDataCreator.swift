@@ -199,13 +199,13 @@ class PDFDataCreator: NSObject {
     }
     
     private func addBodyText(pageRect: CGRect, context: CGContext) {
-        let sectionHeaderAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "HelveticaNeue-Bold", size: 18) as Any, .foregroundColor: UIColor(red: 11/255, green: 181/255, blue: 244/255, alpha: 1)]
+        let sectionHeaderAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "HelveticaNeue-Bold", size: 17) as Any, .foregroundColor: UIColor(red: 11/255, green: 181/255, blue: 244/255, alpha: 1)]
         
         let sectionTextStyle = NSMutableParagraphStyle()
         sectionTextStyle.alignment = .natural
         sectionTextStyle.lineBreakMode = .byWordWrapping
         
-        var sectionTextAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "HelveticaNeue", size: 12) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
+        var sectionTextAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "HelveticaNeue", size: 11) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
         
         var headerString = NSAttributedString(string: "O MNĚ", attributes: sectionHeaderAttributes)
         var textString = NSAttributedString(string: person.about ?? "", attributes: sectionTextAttributes)
@@ -236,13 +236,13 @@ class PDFDataCreator: NSObject {
             let calendar = Calendar.current
             let compFrom = calendar.dateComponents([.year, .month], from: job.periodFrom ?? Date())
             let compTo = calendar.dateComponents([.year, .month], from: job.periodTo ?? Date())
-            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 14) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
+            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 13) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
             textString = NSAttributedString(string: "\(compFrom.year ?? 0) - \(compTo.year ?? 0)", attributes: sectionTextAttributes)
             textRect = CGRect(x: headerRect.minX, y: positionY, width: pageRect.width - 20, height: ceil(textString.size().width/(pageRect.width-40))*textString.size().height)
             textString.draw(in: textRect)
             positionY += textString.size().height
             
-            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 12) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
+            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 11) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
             textString = NSAttributedString(string: job.company ?? "", attributes: sectionTextAttributes)
             textRect = CGRect(x: headerRect.minX, y: positionY + 5, width: pageRect.width - 20, height: ceil(textString.size().width/(pageRect.width-40))*textString.size().height)
             textString.draw(in: textRect)
@@ -273,13 +273,13 @@ class PDFDataCreator: NSObject {
             let calendar = Calendar.current
             let compFrom = calendar.dateComponents([.year, .month], from: school.periodFrom ?? Date())
             let compTo = calendar.dateComponents([.year, .month], from: school.periodTo ?? Date())
-            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 14) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
+            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 13) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
             textString = NSAttributedString(string: "\(compFrom.year ?? 0) - \(compTo.year ?? 0)", attributes: sectionTextAttributes)
             textRect = CGRect(x: headerRect.minX, y: positionY, width: pageRect.width - 20, height: ceil(textString.size().width/(pageRect.width-40))*textString.size().height)
             textString.draw(in: textRect)
             positionY += ceil(textString.size().width/(pageRect.width-40))*textString.size().height
             
-            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 12) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
+            sectionTextAttributes = [.font: UIFont(name: "HelveticaNeue", size: 11) as Any, .foregroundColor: UIColor.black, .paragraphStyle: sectionTextStyle]
             textString = NSAttributedString(string: school.school ?? "", attributes: sectionTextAttributes)
             textRect = CGRect(x: headerRect.minX, y: positionY + 5, width: pageRect.width - 20, height: ceil(textString.size().width/(pageRect.width-40))*textString.size().height)
             textString.draw(in: textRect)
