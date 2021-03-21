@@ -1,46 +1,55 @@
 //
 //  PDFViewer.swift
-//  CvGen
+//  CvGenUI
 //
-//  Created by Jan Miklas on 26.01.2021.
+//  Created by Jan Miklas on 17.03.2021.
 //
 
 import SwiftUI
 import PDFKit
-import WebKit
 
 struct PDFViewer: View {
     
-    let pdfData: Data
-    @State private var showSheet = false
+    @Environment(\.presentationMode) var presentationMode
+    
+    let fileName:String
+    
     
     var body: some View {
-        ShowPDFView(data: pdfData)
-            .navigationBarTitle("Print", displayMode: .inline)
-            .toolbar(content: {
-                Button(action: { showSheet.toggle() }, label: {
-                    Image(systemName: "printer")
-                })
-            })
-            .sheet(isPresented: $showSheet, content: {
-                ActivityView(pdfData: pdfData)
-            })
+        VStack(alignment: .leading) {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("šablony")
+            }
+            .padding(.leading, 15)
+            .padding([.top, .bottom])
+            .foregroundColor(.primary)
+            ShowPDFView(name: fileName)
+                .navigationBarHidden(true)
+                .onAppear {
+                    print(presentationMode)
+            }
+        }
     }
 }
 
 struct PDFViewer_Previews: PreviewProvider {
     static var previews: some View {
-        PDFViewer(pdfData: Data())
+        PDFViewer(fileName: "template1")
     }
 }
 
 struct ShowPDFView: UIViewRepresentable {
    
-    let data: Data
+    let name: String
     
     func makeUIView(context: Context) -> some UIView {
+        
+        let url = Bundle.main.url(forResource: name, withExtension: "pdf")
+        
         let pdfView = PDFView(frame: .zero)
-        pdfView.document = PDFDocument(data: data)
+        pdfView.document = PDFDocument(url: url!)
         pdfView.autoScales = true
         //pdfView.currentPage?.rotation = 90
         return pdfView

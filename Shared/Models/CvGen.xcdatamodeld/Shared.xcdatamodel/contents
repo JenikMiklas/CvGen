@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Address" representedClassName="Address" syncable="YES" codeGenerationType="class">
         <attribute name="state" optional="YES" attributeType="String"/>
         <attribute name="street" optional="YES" attributeType="String"/>
@@ -51,7 +51,7 @@
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="social" inverseEntity="Person"/>
     </entity>
     <elements>
-        <element name="Address" positionX="155.1293334960937" positionY="-14.32861328125001" width="122.4381103515625" height="103"/>
+        <element name="Address" positionX="155.1293334960937" positionY="-14.32861328125001" width="122.4381103515625" height="89"/>
         <element name="Education" positionX="546.4434814453125" positionY="-27.055908203125" width="128" height="118"/>
         <element name="Hobby" positionX="294.329345703125" positionY="-18.70077514648438" width="128" height="59"/>
         <element name="Jobs" positionX="884.2628784179688" positionY="95.74160766601562" width="128" height="118"/>

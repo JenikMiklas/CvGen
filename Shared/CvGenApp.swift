@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CvGenApp: App {
-    
+    /*
     let persistenceController = PersistenceController.shared
     @StateObject var cvgVM: CvGenViewModel// = CvGenViewModel(moc: PersistenceController.shared.container.viewContext)
 
@@ -18,11 +18,11 @@ struct CvGenApp: App {
         let viewModel = CvGenViewModel(moc: viewContext)
         _cvgVM = StateObject(wrappedValue: viewModel)
     }
+    */
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(cvgVM)
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
