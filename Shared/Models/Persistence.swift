@@ -13,21 +13,6 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<1 {
-            let newPerson = Person(context: viewContext)
-            newPerson.name = "Kolotoč"
-            newPerson.born = Date()
-            newPerson.job = "Kolotočář"
-            newPerson.phone = "773 696 282"
-            newPerson.about = "Kolotoč z kolotočova. Rád se otáčí kolem své osy."
-            newPerson.email = "kolotoc@gmail.com"
-            newPerson.web = "www.kolotoc.sk"
-            let newAddress = Address(context: viewContext)
-            newAddress.state = "SK"
-            newAddress.street = "Bzince 55"
-            newAddress.zip = "62255"
-            newPerson.address = newAddress
-        }
         do {
             try viewContext.save()
         } catch {

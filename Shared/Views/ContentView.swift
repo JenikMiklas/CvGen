@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var pVM: PersonViewModel = PersonViewModel()
+    @EnvironmentObject var pVM: PersonViewModel
     
     //MARK: Don't forget to add keyword PRIVATE @State variable
     @State var showMenu = false
@@ -18,8 +18,8 @@ struct ContentView: View {
         ZStack {
             ( showMenu ? Color.black.opacity(0.05) : Color.clear).ignoresSafeArea(.all)
             ZStack(alignment: .leading) {
-                SideMenu()
-                MainView(showMenu: $showMenu)
+                SideMenu(showMenu: $showMenu)
+                MainView(showMenu: $showMenu, menuSection: $pVM.menuSection)
                     .edgesIgnoringSafeArea(.bottom)
                     .scaleEffect(showMenu ? 0.75 : 1)
                     .offset(x: showMenu ? 100 : 0, y: showMenu ? 50 : 0)

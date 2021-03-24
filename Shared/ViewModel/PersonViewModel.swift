@@ -8,16 +8,25 @@
 import Foundation
 import Combine
 
+enum Sections {
+    case education
+    case job
+    case hobby
+    case menu
+    case skill
+    case social
+    case templates
+}
+
 class PersonViewModel: ObservableObject {
     @Published var persons = [Person]()
+    @Published var menuSection: Sections = .menu
     
     private var cancellable: AnyCancellable?
     
     init(personPublisher: AnyPublisher<[Person], Never> = PersonStorage.shared.persons.eraseToAnyPublisher()) {
         cancellable = personPublisher.sink { persons in
             self.persons = persons
-            print(self.persons)
-            print(self.getDocumentsDirectory(name: "kolo"))
         }
     }
     
@@ -27,7 +36,7 @@ class PersonViewModel: ObservableObject {
     
     func getDocumentsDirectory(name: String) -> String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(paths[0])
+        print(paths[0].absoluteString+name)
         return paths[0].absoluteString+name
     }
 }

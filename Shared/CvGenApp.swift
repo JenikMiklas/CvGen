@@ -20,10 +20,13 @@ struct CvGenApp: App {
     }
     */
     
+    @StateObject var pVM: PersonViewModel = PersonViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(pVM)
+                //pv
         }
     }
 }

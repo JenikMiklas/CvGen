@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @Binding var showMenu: Bool
+    @Binding var menuSection: Sections
     
     var body: some View {
         VStack(spacing: 0) {
@@ -33,18 +34,28 @@ struct MainView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 10)
-            ZStack {
-                TemplatesView()
-            }
-            .disabled(showMenu)
+            .background(Color.purple)
+            contentView(menu: menuSection)
+                .disabled(showMenu)
         }
         .background(Color.white)
         .cornerRadius(20)
+    }
+    
+    @ViewBuilder
+    private func contentView(menu:Sections) -> some View {
+        switch menuSection {
+        case Sections.templates:
+            TemplatesView()
+        default:
+            Text("some Content")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 
 struct NavView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(showMenu: .constant(false))
+        MainView(showMenu: .constant(false), menuSection: .constant(.templates))
     }
 }

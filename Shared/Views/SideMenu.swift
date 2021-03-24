@@ -10,6 +10,7 @@ import SwiftUI
 struct SideMenu: View {
     
     @EnvironmentObject var pVM: PersonViewModel
+    @Binding var showMenu: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -24,7 +25,8 @@ struct SideMenu: View {
                         } else {
                             Image(systemName: "person.crop.circle.badge.questionmark")
                                  .resizable()
-                                 .frame(width: 65, height: 65)
+                                 .frame(width: 50, height: 50)
+                                .scaledToFit()
                         }
                     }
                 }
@@ -55,7 +57,13 @@ struct SideMenu: View {
                         .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: {
+                    pVM.menuSection = .templates
+                    withAnimation {
+                        showMenu.toggle()
+                    }
+                    
+                }) {
                     Text("Šablony")
                         .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -66,23 +74,21 @@ struct SideMenu: View {
                 }) {
                     Image(systemName: "person.crop.circle.badge.plus")
                         .resizable()
-                        .frame(maxWidth: 35)
+                        .frame(maxWidth: 35, maxHeight: 35)
                         .scaledToFit()
                 }
             }
             .buttonStyle(PlainButtonStyle())
         }
         .padding([.leading, .top])
-        .onAppear {
-           // print(pVM.getDocumentsDirectory(name: pVM.persons[2].img ?? ""))
-        }
     }
 }
 
 struct SideMenu_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SideMenu().environmentObject(PersonViewModel())
+            SideMenu(showMenu: .constant(false))
+                .environmentObject(PersonViewModel())
         }
     }
 }
