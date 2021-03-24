@@ -34,8 +34,8 @@ struct MainView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 10)
-            .background(Color.purple)
             contentView(menu: menuSection)
+                .transition(AnyTransition.opacity.animation(.default))
                 .disabled(showMenu)
         }
         .background(Color.white)
@@ -48,14 +48,14 @@ struct MainView: View {
         case Sections.templates:
             TemplatesView()
         default:
-            Text("some Content")
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Text("work in progress...")
+            Spacer()
         }
     }
 }
 
 struct NavView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(showMenu: .constant(false), menuSection: .constant(.templates))
+        MainView(showMenu: .constant(false), menuSection: .constant(.social))
     }
 }

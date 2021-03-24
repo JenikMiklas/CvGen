@@ -11,28 +11,29 @@ struct SideMenu: View {
     
     @EnvironmentObject var pVM: PersonViewModel
     @Binding var showMenu: Bool
+    @State private var showSheet = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(pVM.persons) { person in
-                        if let img = person.img {
+            //ScrollView(.horizontal) {
+                //HStack {
+                   // ForEach(pVM.persons) { person in
+                        if let img = pVM.person?.img {
                             Image(pVM.getDocumentsDirectory(name: img))
                                  .resizable()
                                  .frame(width: 65, height: 65)
                                  .clipShape(Circle())
                         } else {
-                            Image(systemName: "person.crop.circle.badge.questionmark")
-                                 .resizable()
-                                 .frame(width: 50, height: 50)
-                                .scaledToFit()
+                            Image("profile")
+                                .resizable()
+                                .frame(width: 65, height: 65)
+                                .clipShape(Circle())
                         }
-                    }
-                }
-            }
+                    //}
+                //}
+            //}
             Group {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Button(action: { goTo(.menu) }) {
                     Text("Osobní info")
                         .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -57,22 +58,16 @@ struct SideMenu: View {
                         .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
-                Button(action: {
-                    pVM.menuSection = .templates
-                    withAnimation {
-                        showMenu.toggle()
-                    }
-                    
-                }) {
+                Button(action: { goTo(.templates) }) {
                     Text("Šablony")
                         .font(.headline)
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
                 Spacer()
                 Button(action: {
-                    pVM.newPerson()
+                    showSheet.toggle()
                 }) {
-                    Image(systemName: "person.crop.circle.badge.plus")
+                    Image(systemName: "person.3.fill")
                         .resizable()
                         .frame(maxWidth: 35, maxHeight: 35)
                         .scaledToFit()
@@ -81,6 +76,15 @@ struct SideMenu: View {
             .buttonStyle(PlainButtonStyle())
         }
         .padding([.leading, .top])
+        .sheet(isPresented: $showSheet) {
+            PersonsView(showSheet: $showSheet)
+        }
+    }
+    private func goTo(_ selectedView: Sections) {
+        pVM.menuSection = selectedView
+        withAnimation {
+            showMenu.toggle()
+        }
     }
 }
 

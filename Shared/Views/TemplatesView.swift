@@ -32,6 +32,7 @@ struct TemplatesView: View {
                 .padding(.horizontal)
             }
             .navigationBarHidden(true)
+            .transition(.opacity)
         }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F0C27D425C04F8D001E8D9E /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C27D325C04F8D001E8D9E /* face.png */; };
 		7F5A330525CAE9E80035A248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F5A330425CAE9E80035A248 /* Assets.xcassets */; };
+		7F64BCFA260B969E008464E8 /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64BCF9260B969E008464E8 /* PersonsView.swift */; };
 		7F6CFEF625D2AB83005B56CF /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CFEF425D2AB83005B56CF /* Person+CoreDataClass.swift */; };
 		7F6CFEF725D2AB83005B56CF /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CFEF525D2AB83005B56CF /* Person+CoreDataProperties.swift */; };
 		7F765A4525C022D9000754C0 /* CvGen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F765A2F25C022D6000754C0 /* CvGen.xcdatamodeld */; };
@@ -37,6 +38,7 @@
 		7F5A330925CB15370035A248 /* SchoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolView.swift; sourceTree = "<group>"; };
 		7F5A330C25CB41D70035A248 /* ContainerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViews.swift; sourceTree = "<group>"; };
 		7F5A330F25CB53B20035A248 /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
+		7F64BCF9260B969E008464E8 /* PersonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsView.swift; sourceTree = "<group>"; };
 		7F6CFEF425D2AB83005B56CF /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7F6CFEF525D2AB83005B56CF /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7F6CFEF925D2ACD0005B56CF /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				7FE8A0C226067A99004F86FB /* ContentView.swift */,
 				7FE8A0B3260678F9004F86FB /* MainView.swift */,
+				7F64BCF9260B969E008464E8 /* PersonsView.swift */,
 				7FE8A0B2260678F9004F86FB /* PDFViewer.swift */,
 				7FE8A0B4260678FA004F86FB /* SideMenu.swift */,
 				7FE8A0B1260678F9004F86FB /* TemplatesView.swift */,
@@ -270,6 +273,7 @@
 				7F6CFEF725D2AB83005B56CF /* Person+CoreDataProperties.swift in Sources */,
 				7F798D3025E12E8100184350 /* PDFDataCreator.swift in Sources */,
 				7FE8A0CE26068C68004F86FB /* PersonViewModel.swift in Sources */,
+				7F64BCFA260B969E008464E8 /* PersonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

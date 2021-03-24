@@ -21,6 +21,7 @@ enum Sections {
 class PersonViewModel: ObservableObject {
     @Published var persons = [Person]()
     @Published var menuSection: Sections = .menu
+    @Published var person: Person?
     
     private var cancellable: AnyCancellable?
     
