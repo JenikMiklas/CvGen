@@ -38,17 +38,17 @@ class PersonStorage: NSObject, ObservableObject {
     static func createPerson() {
         let context = PersistenceController.shared.container.viewContext
         let newPerson = Person(context: context)
-        newPerson.name = "Kolotoč"
+        /*newPerson.name = "Kolotoč"
         newPerson.born = Date()
         newPerson.job = "Kolotočář"
         newPerson.phone = "773 696 282"
         newPerson.about = "Kolotoč z kolotočova. Rád se otáčí kolem své osy."
         newPerson.email = "kolotoc@gmail.com"
-        newPerson.web = "www.kolotoc.sk"
+        newPerson.web = "www.kolotoc.sk"*/
         let newAddress = Address(context: context)
-        newAddress.state = "SK"
+        /*newAddress.state = "SK"
         newAddress.street = "Bzince 55"
-        newAddress.zip = "62255"
+        newAddress.zip = "62255"*/
         newPerson.address = newAddress
         do {
             try context.save()

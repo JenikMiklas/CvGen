@@ -30,7 +30,7 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="img" optional="YES" attributeType="String"/>
         <attribute name="job" optional="YES" attributeType="String"/>
-        <attribute name="name" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="phone" optional="YES" attributeType="String"/>
         <attribute name="web" optional="YES" attributeType="String"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="person" inverseEntity="Address"/>

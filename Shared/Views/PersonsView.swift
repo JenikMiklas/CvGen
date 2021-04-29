@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PersonsView: View {
     
+    //@EnvironmentObject var pVM: PersonViewModel
     @Binding var showSheet: Bool
     
     var body: some View {
@@ -24,13 +25,23 @@ struct PersonsView: View {
                 .padding(.top, 10)
                 .foregroundColor(.primary)
             }
-            Image("jenikface")
-                .resizable()
-                .frame(width: 250, height: 250)
-                .scaledToFit()
-                .clipShape(Circle())
-                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            Spacer()
+            ScrollView(showsIndicators: false) {
+                ForEach(0 ..< 1) { _ in
+                    PersonLargeCard()
+                }
+                .onDelete(perform: { indexSet in
+                    //
+                })
+                Divider()
+                    .padding()
+                ForEach(0..<2) { item in
+                    PersonSmallCard()
+                    Divider()
+                }.onDelete(perform: { indexSet in
+                    //pVM.persons.remove(atOffsets: indexSet)
+                })
+            }
+            //Spacer()
         }
     }
 }
@@ -38,5 +49,27 @@ struct PersonsView: View {
 struct PersonsView_Previews: PreviewProvider {
     static var previews: some View {
         PersonsView(showSheet: .constant(true))
+            //.environmentObject(PersonViewModel())
+    }
+}
+
+struct PersonLargeCard: View {
+    var body: some View {
+        ZStack(alignment: .center) {
+            Image("jenikface")
+                .resizable()
+                .frame(width: 250, height: 250)
+                .scaledToFill()
+                .clipShape(Circle())
+        }
+    }
+}
+
+struct PersonSmallCard: View {
+    var body: some View {
+        Image("jenikface")
+            .resizable()
+            .frame(width: 100, height: 100)
+            .clipShape(Circle())
     }
 }

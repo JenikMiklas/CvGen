@@ -29,6 +29,7 @@ class PersonViewModel: ObservableObject {
         cancellable = personPublisher.sink { persons in
             self.persons = persons
         }
+        print(getDocumentsDirectory(name: "kolo"))
     }
     
     func newPerson() {
@@ -37,7 +38,6 @@ class PersonViewModel: ObservableObject {
     
     func getDocumentsDirectory(name: String) -> String {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        print(paths[0].absoluteString+name)
         return paths[0].absoluteString+name
     }
 }
